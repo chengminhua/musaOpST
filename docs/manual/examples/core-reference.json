@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "reference_precision",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              0.1,
+              0.2,
+              0.3,
+              0.4
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "seed": 42,
+      "parameters": {
+        "policy": [
+          "float64",
+          "float32",
+          "preserve"
+        ]
+      },
+      "reference_policy": "${policy}"
+    }
+  ]
+}

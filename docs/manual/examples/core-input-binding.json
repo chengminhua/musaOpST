@@ -1,0 +1,119 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "named_identity",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "name": "x"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42,
+      "binding": "named"
+    },
+    {
+      "name": "optional_absent",
+      "backend": "cpu",
+      "entry": "musaopst.examples.advanced_refs:optional_bias",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        },
+        {
+          "kind": "absent"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42
+    },
+    {
+      "name": "optional_present",
+      "backend": "cpu",
+      "entry": "musaopst.examples.advanced_refs:optional_bias",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        },
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42
+    },
+    {
+      "name": "tensor_list",
+      "backend": "cpu",
+      "entry": "musaopst.examples.advanced_refs:tensor_list_sum",
+      "reference": "musaopst.examples.contract_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "items": [
+            {
+              "shape": [
+                4
+              ],
+              "dtype": "float32"
+            },
+            {
+              "shape": [
+                4
+              ],
+              "dtype": "float32"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42
+    }
+  ]
+}

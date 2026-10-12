@@ -1,0 +1,980 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "torch_musa_runtime_shape_N1",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "torch_musa_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "torch_musa_runtime_shape_N17",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "torch_musa_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "torch_musa_runtime_shape_N513",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "torch_musa_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "musa_cpp_runtime_shape_N1",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "musa_cpp_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "musa_cpp_runtime_shape_N17",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "musa_cpp_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "musa_cpp_runtime_shape_N513",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "musa_cpp_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "triton_runtime_shape_N1",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "triton_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "triton_runtime_shape_N17",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "triton_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "triton_runtime_shape_N513",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "triton_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "tilelang_runtime_shape_N1",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:axpby_dynamic",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "tilelang_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "tilelang_runtime_shape_N17",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:axpby_dynamic",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "tilelang_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "tilelang_runtime_shape_N513",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:axpby_dynamic",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "tilelang_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "native_runtime_shape_N1",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "native_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "native_runtime_shape_N17",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "native_runtime_axpby",
+      "shape_mode": "runtime"
+    },
+    {
+      "name": "native_runtime_shape_N513",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            513
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      },
+      "compile_group": "native_runtime_axpby",
+      "shape_mode": "runtime"
+    }
+  ]
+}

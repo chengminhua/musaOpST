@@ -1,0 +1,91 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "positive_control",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42
+    },
+    {
+      "name": "expected_value_failure",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:wrong",
+      "reference": "musaopst.examples.references:add",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        },
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42,
+      "expect": {
+        "status": "ACCURACY_FAILED",
+        "stage": "compare",
+        "exception": "ComparisonFailure"
+      }
+    },
+    {
+      "name": "expected_reference_failure",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.cpu_ops:raises",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42,
+      "expect": {
+        "status": "REFERENCE_FAILED",
+        "stage": "reference",
+        "exception": "RuntimeError",
+        "message_contains": "controlled offline fixture failure"
+      }
+    }
+  ]
+}

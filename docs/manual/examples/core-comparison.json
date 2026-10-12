@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "metrics",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              1,
+              2,
+              4,
+              8
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "compare": {
+            "metrics": {
+              "rmse_max": 0,
+              "cosine_min": 1,
+              "ulp_max": 0
+            }
+          }
+        }
+      ],
+      "seed": 42
+    },
+    {
+      "name": "integer_extremes",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              -9223372036854775808,
+              9223372036854775807,
+              0,
+              -1
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "seed": 42,
+      "reference_policy": "preserve"
+    },
+    {
+      "name": "complex_components",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "complex64",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              1,
+              -2
+            ],
+            "imag": [
+              0.5,
+              3
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "complex64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "seed": 42,
+      "reference_policy": "preserve"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "torch_musa_matmul_float32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_sum_max_bfloat16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        },
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,6880 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "torch_musa_axpby_float32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_axpby_float16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_axpby_bfloat16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_sum_max_float32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float32"
+        },
+        {
+          "shape": [],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_sum_max_float16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float16"
+        },
+        {
+          "shape": [],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_sum_max_bfloat16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        },
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_matmul_float32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_matmul_float16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_matmul_bfloat16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_softmax_float32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_softmax_float16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_softmax_bfloat16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_fill_float32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float32"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_fill_float16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_fill_bfloat16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "bfloat16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_inplace_add_float32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "torch_musa_inplace_add_float16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "torch_musa_inplace_add_bfloat16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "torch_musa_identity_float32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_float16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_bfloat16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_float32_transpose",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            1,
+            5
+          ],
+          "storage_offset": 2
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_float32_slice",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            3
+          ],
+          "storage_offset": 4
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_axpby_float32_single_event",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    },
+    {
+      "name": "torch_musa_axpby_float32_wall_time",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "wall_time",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    },
+    {
+      "name": "musa_cpp_axpby_float32",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_axpby_float16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_axpby_bfloat16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_sum_max_float32",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float32"
+        },
+        {
+          "shape": [],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_sum_max_float16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float16"
+        },
+        {
+          "shape": [],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_sum_max_bfloat16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        },
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_matmul_float32",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_matmul_float16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_matmul_bfloat16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_softmax_float32",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_softmax_float16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_softmax_bfloat16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_fill_float32",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float32"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_fill_float16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_fill_bfloat16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "bfloat16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_inplace_add_float32",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "musa_cpp_inplace_add_float16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "musa_cpp_inplace_add_bfloat16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "musa_cpp_identity_float32",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_float16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_bfloat16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_float32_transpose",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            1,
+            5
+          ],
+          "storage_offset": 2
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_float32_slice",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            3
+          ],
+          "storage_offset": 4
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_axpby_float32_single_event",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    },
+    {
+      "name": "musa_cpp_axpby_float32_wall_time",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "wall_time",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    },
+    {
+      "name": "triton_axpby_float32",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_axpby_float16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_axpby_bfloat16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_sum_max_float32",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float32"
+        },
+        {
+          "shape": [],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_sum_max_float16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float16"
+        },
+        {
+          "shape": [],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_sum_max_bfloat16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        },
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_matmul_float32",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_matmul_float16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_matmul_bfloat16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_softmax_float32",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_softmax_float16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_softmax_bfloat16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_fill_float32",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float32"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_fill_float16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_fill_bfloat16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "bfloat16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_inplace_add_float32",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "triton_inplace_add_float16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "triton_inplace_add_bfloat16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "triton_identity_float32",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_float16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_bfloat16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_float32_transpose",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            1,
+            5
+          ],
+          "storage_offset": 2
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_float32_slice",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            3
+          ],
+          "storage_offset": 4
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_axpby_float32_single_event",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    },
+    {
+      "name": "triton_axpby_float32_wall_time",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "wall_time",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    },
+    {
+      "name": "tilelang_axpby_float32",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_axpby_float16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_axpby_bfloat16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_sum_max_float32",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float32"
+        },
+        {
+          "shape": [],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_sum_max_float16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float16"
+        },
+        {
+          "shape": [],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_sum_max_bfloat16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        },
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_matmul_float32",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_matmul_float16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_matmul_bfloat16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_softmax_float32",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_softmax_float16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_softmax_bfloat16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_fill_float32",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float32"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_fill_float16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_fill_bfloat16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "bfloat16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_inplace_add_float32",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "tilelang_inplace_add_float16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "tilelang_inplace_add_bfloat16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "tilelang_identity_float32",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_float16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_bfloat16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_float32_transpose",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            1,
+            5
+          ],
+          "storage_offset": 2
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_float32_slice",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            3
+          ],
+          "storage_offset": 4
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_axpby_float32_single_event",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    },
+    {
+      "name": "tilelang_axpby_float32_wall_time",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "wall_time",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    },
+    {
+      "name": "native_axpby_float32",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_axpby_float16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_axpby_bfloat16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_sum_max_float32",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float32"
+        },
+        {
+          "shape": [],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_sum_max_float16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "float16"
+        },
+        {
+          "shape": [],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_sum_max_bfloat16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:sum_max",
+      "reference": "musaopst.examples.advanced_references:sum_max",
+      "inputs": [
+        {
+          "shape": [
+            129
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        },
+        {
+          "shape": [],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "sum_max",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_matmul_float32",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_matmul_float16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_matmul_bfloat16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:matmul",
+      "reference": "musaopst.examples.advanced_references:matmul",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            7,
+            5
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            5
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "matmul",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_softmax_float32",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_softmax_float16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_softmax_bfloat16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:softmax",
+      "reference": "musaopst.examples.advanced_references:softmax",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "softmax",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_fill_float32",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float32"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_fill_float16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "float16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_fill_bfloat16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:fill",
+      "reference": "musaopst.examples.advanced_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          17
+        ],
+        "value": 0.75,
+        "dtype": "bfloat16"
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "fill",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_inplace_add_float32",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "native_inplace_add_float16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "native_inplace_add_bfloat16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:inplace_add",
+      "reference": "musaopst.examples.advanced_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.125
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "inplace_add",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "native_identity_float32",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_float16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_bfloat16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            33
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "bfloat16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_float32_transpose",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            1,
+            5
+          ],
+          "storage_offset": 2
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_float32_slice",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          "strides": [
+            3
+          ],
+          "storage_offset": 4
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "identity",
+        "float32",
+        "layout"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_axpby_float32_single_event",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "single_event",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    },
+    {
+      "name": "native_axpby_float32_wall_time",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "alpha": 0.75,
+        "beta": -0.5
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "backend-matrix",
+        "axpby",
+        "float32",
+        "timing"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 1,
+        "mode": "wall_time",
+        "stream": "independent",
+        "cache": "interference",
+        "cache_bytes": 1048576
+      }
+    }
+  ]
+}

@@ -1,0 +1,3005 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "torch_musa_identity_bool",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "bool"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_int8",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_uint8",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_int16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_uint16",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_int32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_uint32",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_int64",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_uint64",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_float64",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "float64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_complex64",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "torch_musa_identity_complex128",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex128"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_bool",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "bool"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_int8",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_uint8",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_int16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_uint16",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_int32",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_uint32",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_int64",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_uint64",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_float64",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "float64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_complex64",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "musa_cpp_identity_complex128",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex128"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_bool",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "bool"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_int8",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_uint8",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_int16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_uint16",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_int32",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_uint32",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_int64",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_uint64",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_float64",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "float64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_complex64",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "triton_identity_complex128",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex128"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_bool",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "bool"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_int8",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_uint8",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_int16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_uint16",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_int32",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_uint32",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_int64",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_uint64",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_float64",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "float64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_complex64",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "tilelang_identity_complex128",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex128"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_bool",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "bool",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "bool"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_int8",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_uint8",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint8",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint8"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_int16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_uint16",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint16"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_int32",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_uint32",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint32"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_int64",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "int64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_uint64",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "uint64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "uint64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_float64",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "float64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_complex64",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex64"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    },
+    {
+      "name": "native_identity_complex128",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.advanced_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "complex128",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "dtype-capability",
+        "complex128"
+      ],
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "benchmark": {
+        "enabled": false,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 3
+      }
+    }
+  ]
+}

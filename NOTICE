@@ -1,0 +1,27 @@
+musaOpST
+Copyright (c) 2026 musaOpST contributors
+
+Original source code, examples, tests, skills, and documentation in this
+repository are licensed under MulanPSL-2.0. See LICENSE for the full terms.
+This includes project JSON configurations and binary input fixtures, which
+cannot carry an inline source comment. External dependencies are not
+relicensed by this notice and remain subject to their own licenses.
+
+The testing workflow design was informed by msOpST in msopgen:
+https://github.com/Ascend/msopgen
+Reviewed revision: e8f6d68c01f6af37ce30c2adf10e4ae475d94882
+References covered case configuration, input preparation, execution stages,
+result comparison, and report organization. The MUSA-specific execution
+code is maintained by this project; compatibility with the reference
+project's configuration or APIs is not promised. Upstream source and documentation copies retained
+for review are not included in this repository's distribution packages.
+See docs/design-reference.md in the source distribution for the reference list.
+
+This design attribution does not replace the license and attribution
+requirements of any third-party material that is incorporated or adapted.
+
+musaOpST is an independent project. References to MUSA, Moore Threads,
+PyTorch, Triton, TileLang, msOpST, msopgen, and other projects or products
+identify interoperability or design sources. Project names and references
+do not imply official affiliation, certification, endorsement, or a
+trademark license.

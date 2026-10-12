@@ -1,0 +1,5382 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:musaopst:config:2",
+  "title": "musaopst configuration versions 1 and 2",
+  "description": "Structural source schema. config.py additionally validates each expanded combination, contracts, finite values, binding, source metadata and constraints. Internal normalized fields are not accepted in source configs.",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "integer",
+          "const": 1
+        },
+        "cases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/case"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "cases"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 2,
+          "type": "integer"
+        },
+        "defaults": {
+          "type": "object",
+          "properties": {
+            "compare": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "atol": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "rtol": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "max_mismatch_ratio": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "max_failures": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "nan": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "reject",
+                            "equal"
+                          ]
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "inf": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "reject",
+                            "same_sign"
+                          ]
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "exact": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "custom": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "metrics": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "rmse_max": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 0
+                                },
+                                {
+                                  "$ref": "#/$defs/placeholder"
+                                }
+                              ]
+                            },
+                            "cosine_min": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": -1,
+                                  "maximum": 1
+                                },
+                                {
+                                  "$ref": "#/$defs/placeholder"
+                                }
+                              ]
+                            },
+                            "ulp_max": {
+                              "anyOf": [
+                                {
+                                  "type": "integer",
+                                  "minimum": 0
+                                },
+                                {
+                                  "$ref": "#/$defs/placeholder"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [],
+                          "additionalProperties": false
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [],
+                  "additionalProperties": false
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "benchmark": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "warmup": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "samples": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "iterations": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "mode": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "batch_event",
+                            "single_event",
+                            "wall_time"
+                          ]
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "stream": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "current",
+                            "independent"
+                          ]
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "cache": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "warm",
+                            "interference"
+                          ]
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "cache_bytes": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "allow_inplace": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [],
+                  "additionalProperties": false
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "repeat": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "duration_s": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [],
+                  "additionalProperties": false
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "timeout_s": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "required": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "reference_policy": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "float64",
+                    "float32",
+                    "preserve"
+                  ]
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "profile": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "warmup": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "iterations": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "record_shapes": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "profile_memory": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [],
+                  "additionalProperties": false
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "seed": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "cases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "entry": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "reference": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "backend": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "cpu",
+                      "torch_musa",
+                      "musa_cpp",
+                      "triton",
+                      "tilelang",
+                      "native"
+                    ]
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "attrs": {
+                "anyOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "attr_types": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "seed": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "timeout_s": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "required": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "skip": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "reference_policy": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "float64",
+                      "float32",
+                      "preserve"
+                    ]
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "tags": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "binding": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "named",
+                      "positional"
+                    ]
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "compile_group": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "shape_mode": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "runtime",
+                      "specialize"
+                    ]
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "operator": {
+                "anyOf": [
+                  {
+                    "type": [
+                      "string",
+                      "object"
+                    ]
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "build": {
+                "anyOf": [
+                  {
+                    "type": [
+                      "string",
+                      "object"
+                    ]
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "artifact": {
+                "anyOf": [
+                  {
+                    "type": [
+                      "string",
+                      "object"
+                    ]
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "sources": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "description": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "inputs": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/inputV2"
+                    }
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "outputs": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "shape": {
+                          "anyOf": [
+                            {
+                              "anyOf": [
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "$ref": "#/$defs/placeholder"
+                                }
+                              ]
+                            },
+                            {
+                              "const": "reference"
+                            }
+                          ]
+                        },
+                        "dtype": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "float16",
+                                "bfloat16",
+                                "float32",
+                                "float64",
+                                "int32",
+                                "int64",
+                                "bool",
+                                "int8",
+                                "int16",
+                                "uint8",
+                                "uint16",
+                                "uint32",
+                                "uint64",
+                                "complex64",
+                                "complex128"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "compare": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "atol": {
+                                  "anyOf": [
+                                    {
+                                      "type": "number",
+                                      "minimum": 0
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "rtol": {
+                                  "anyOf": [
+                                    {
+                                      "type": "number",
+                                      "minimum": 0
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "max_mismatch_ratio": {
+                                  "anyOf": [
+                                    {
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 1
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "max_failures": {
+                                  "anyOf": [
+                                    {
+                                      "type": "integer",
+                                      "minimum": 0
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "nan": {
+                                  "anyOf": [
+                                    {
+                                      "enum": [
+                                        "reject",
+                                        "equal"
+                                      ]
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "inf": {
+                                  "anyOf": [
+                                    {
+                                      "enum": [
+                                        "reject",
+                                        "same_sign"
+                                      ]
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "exact": {
+                                  "anyOf": [
+                                    {
+                                      "type": "boolean"
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "custom": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "metrics": {
+                                  "anyOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "rmse_max": {
+                                          "anyOf": [
+                                            {
+                                              "type": "number",
+                                              "minimum": 0
+                                            },
+                                            {
+                                              "$ref": "#/$defs/placeholder"
+                                            }
+                                          ]
+                                        },
+                                        "cosine_min": {
+                                          "anyOf": [
+                                            {
+                                              "type": "number",
+                                              "minimum": -1,
+                                              "maximum": 1
+                                            },
+                                            {
+                                              "$ref": "#/$defs/placeholder"
+                                            }
+                                          ]
+                                        },
+                                        "ulp_max": {
+                                          "anyOf": [
+                                            {
+                                              "type": "integer",
+                                              "minimum": 0
+                                            },
+                                            {
+                                              "$ref": "#/$defs/placeholder"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "required": [],
+                                      "additionalProperties": false
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                }
+                              },
+                              "required": [],
+                              "additionalProperties": false
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "rank": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_elements": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "layout": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "strides": {
+                                  "anyOf": [
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                      }
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "contiguous": {
+                                  "anyOf": [
+                                    {
+                                      "type": "boolean"
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                },
+                                "storage_offset": {
+                                  "anyOf": [
+                                    {
+                                      "type": "integer",
+                                      "minimum": 0
+                                    },
+                                    {
+                                      "$ref": "#/$defs/placeholder"
+                                    }
+                                  ]
+                                }
+                              },
+                              "required": [],
+                              "additionalProperties": false
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "alias_input": {
+                          "anyOf": [
+                            {
+                              "type": [
+                                "integer",
+                                "string"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "shape",
+                        "dtype"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "compare": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "atol": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "rtol": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "max_mismatch_ratio": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "max_failures": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "nan": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "reject",
+                              "equal"
+                            ]
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "inf": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "reject",
+                              "same_sign"
+                            ]
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "exact": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "custom": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "metrics": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "rmse_max": {
+                                "anyOf": [
+                                  {
+                                    "type": "number",
+                                    "minimum": 0
+                                  },
+                                  {
+                                    "$ref": "#/$defs/placeholder"
+                                  }
+                                ]
+                              },
+                              "cosine_min": {
+                                "anyOf": [
+                                  {
+                                    "type": "number",
+                                    "minimum": -1,
+                                    "maximum": 1
+                                  },
+                                  {
+                                    "$ref": "#/$defs/placeholder"
+                                  }
+                                ]
+                              },
+                              "ulp_max": {
+                                "anyOf": [
+                                  {
+                                    "type": "integer",
+                                    "minimum": 0
+                                  },
+                                  {
+                                    "$ref": "#/$defs/placeholder"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [],
+                            "additionalProperties": false
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [],
+                    "additionalProperties": false
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "compare_by_dtype": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "float16": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "bfloat16": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "float32": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "float64": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "int32": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "int64": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "bool": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "int8": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "int16": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "uint8": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "uint16": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "uint32": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "uint64": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "complex64": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "complex128": {
+                        "type": "object",
+                        "properties": {
+                          "atol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "rtol": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_mismatch_ratio": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "max_failures": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "nan": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "equal"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "inf": {
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "reject",
+                                  "same_sign"
+                                ]
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "exact": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "custom": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          },
+                          "metrics": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "rmse_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "cosine_min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number",
+                                        "minimum": -1,
+                                        "maximum": 1
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  },
+                                  "ulp_max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer",
+                                        "minimum": 0
+                                      },
+                                      {
+                                        "$ref": "#/$defs/placeholder"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [],
+                                "additionalProperties": false
+                              },
+                              {
+                                "$ref": "#/$defs/placeholder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [],
+                    "additionalProperties": false
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "benchmark": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "enabled": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "warmup": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "samples": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "iterations": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "mode": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "batch_event",
+                              "single_event",
+                              "wall_time"
+                            ]
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "stream": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "current",
+                              "independent"
+                            ]
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "cache": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "warm",
+                              "interference"
+                            ]
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "cache_bytes": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "allow_inplace": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [],
+                    "additionalProperties": false
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "profile": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "enabled": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "warmup": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "iterations": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "record_shapes": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "profile_memory": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [],
+                    "additionalProperties": false
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "repeat": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "count": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "duration_s": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [],
+                    "additionalProperties": false
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "parameters": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "minItems": 1
+                }
+              },
+              "symbols": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                }
+              },
+              "constraints": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "left": {},
+                        "op": {
+                          "enum": [
+                            "eq",
+                            "ne",
+                            "lt",
+                            "le",
+                            "gt",
+                            "ge",
+                            "divisible"
+                          ]
+                        },
+                        "right": {}
+                      },
+                      "required": [
+                        "left",
+                        "op",
+                        "right"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "expect": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "ACCURACY_FAILED",
+                          "BUILD_FAILED",
+                          "EXECUTION_FAILED",
+                          "REFERENCE_FAILED",
+                          "TIMEOUT",
+                          "CONFIG_ERROR",
+                          "UNSUPPORTED"
+                        ]
+                      },
+                      "stage": {
+                        "type": "string"
+                      },
+                      "exception": {
+                        "type": "string"
+                      },
+                      "message_contains": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "status"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "backend",
+              "entry",
+              "inputs",
+              "outputs",
+              "reference"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "cases"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "$defs": {
+    "placeholder": {
+      "type": "string",
+      "pattern": "^\\$\\{[A-Za-z_]\\w*\\}$"
+    },
+    "fixedValues": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fixedValues"
+          }
+        },
+        {
+          "$ref": "#/$defs/placeholder"
+        }
+      ]
+    },
+    "case": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "backend": {
+          "anyOf": [
+            {
+              "enum": [
+                "cpu",
+                "torch_musa",
+                "musa_cpp",
+                "triton",
+                "tilelang",
+                "native"
+              ]
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "entry": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)*:[A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)*$"
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "reference": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)*:[A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)*$"
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "inputs": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "shape": {
+                        "anyOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "integer",
+                                  "minimum": 0
+                                },
+                                {
+                                  "$ref": "#/$defs/placeholder"
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "dtype": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "float16",
+                              "bfloat16",
+                              "float32",
+                              "float64",
+                              "int32",
+                              "int64"
+                            ]
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "layout": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "contiguous",
+                              "strided"
+                            ]
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "distribution": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "kind": {
+                                "const": "normal"
+                              },
+                              "mean": {
+                                "anyOf": [
+                                  {
+                                    "type": "number"
+                                  },
+                                  {
+                                    "$ref": "#/$defs/placeholder"
+                                  }
+                                ]
+                              },
+                              "std": {
+                                "anyOf": [
+                                  {
+                                    "type": "number",
+                                    "minimum": 0
+                                  },
+                                  {
+                                    "$ref": "#/$defs/placeholder"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "kind"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "kind": {
+                                "const": "uniform"
+                              },
+                              "low": {
+                                "anyOf": [
+                                  {
+                                    "type": "number"
+                                  },
+                                  {
+                                    "$ref": "#/$defs/placeholder"
+                                  }
+                                ]
+                              },
+                              "high": {
+                                "anyOf": [
+                                  {
+                                    "type": "number"
+                                  },
+                                  {
+                                    "$ref": "#/$defs/placeholder"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "kind"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "kind": {
+                                "const": "fixed"
+                              },
+                              "values": {
+                                "$ref": "#/$defs/fixedValues"
+                              }
+                            },
+                            "required": [
+                              "kind",
+                              "values"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "shape",
+                      "dtype"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "minItems": 1
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "outputs": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "shape": {
+                        "anyOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "integer",
+                                  "minimum": 0
+                                },
+                                {
+                                  "$ref": "#/$defs/placeholder"
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      },
+                      "dtype": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "float16",
+                              "bfloat16",
+                              "float32",
+                              "float64",
+                              "int32",
+                              "int64"
+                            ]
+                          },
+                          {
+                            "$ref": "#/$defs/placeholder"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "shape",
+                      "dtype"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "$ref": "#/$defs/placeholder"
+                  }
+                ]
+              },
+              "minItems": 1
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "attrs": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709551615
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "compare": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "atol": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "rtol": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "nan": {
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "reject",
+                        "equal"
+                      ]
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "inf": {
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "reject",
+                        "same_sign"
+                      ]
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "max_mismatch_ratio": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "max_failures": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "compare_by_dtype": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "float16": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "atol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "rtol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "nan": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "equal"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "inf": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "same_sign"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_mismatch_ratio": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_failures": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [],
+                      "additionalProperties": false
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "bfloat16": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "atol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "rtol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "nan": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "equal"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "inf": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "same_sign"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_mismatch_ratio": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_failures": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [],
+                      "additionalProperties": false
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "float32": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "atol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "rtol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "nan": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "equal"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "inf": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "same_sign"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_mismatch_ratio": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_failures": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [],
+                      "additionalProperties": false
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "float64": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "atol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "rtol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "nan": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "equal"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "inf": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "same_sign"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_mismatch_ratio": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_failures": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [],
+                      "additionalProperties": false
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "int32": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "atol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "rtol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "nan": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "equal"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "inf": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "same_sign"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_mismatch_ratio": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_failures": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [],
+                      "additionalProperties": false
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "int64": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "atol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "rtol": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "nan": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "equal"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "inf": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "reject",
+                                "same_sign"
+                              ]
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_mismatch_ratio": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        },
+                        "max_failures": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "$ref": "#/$defs/placeholder"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [],
+                      "additionalProperties": false
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "benchmark": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "warmup": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "samples": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "iterations": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "repeat": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                },
+                "duration_s": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    {
+                      "$ref": "#/$defs/placeholder"
+                    }
+                  ]
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "timeout_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "required": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "skip": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/placeholder"
+            }
+          ]
+        },
+        "parameters": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[A-Za-z_]\\w*$"
+          },
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1
+          }
+        }
+      },
+      "required": [
+        "name",
+        "backend",
+        "entry",
+        "inputs",
+        "outputs",
+        "reference"
+      ],
+      "additionalProperties": false
+    },
+    "inputV2": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Za-z_]\\w*$"
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "binding": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "named",
+                    "positional"
+                  ]
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "kind": {
+              "const": "tensor"
+            },
+            "shape": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      {
+                        "$ref": "#/$defs/placeholder"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "dtype": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "float16",
+                    "bfloat16",
+                    "float32",
+                    "float64",
+                    "int32",
+                    "int64",
+                    "bool",
+                    "int8",
+                    "int16",
+                    "uint8",
+                    "uint16",
+                    "uint32",
+                    "uint64",
+                    "complex64",
+                    "complex128"
+                  ]
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "layout": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "contiguous",
+                    "strided",
+                    "explicit"
+                  ]
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "distribution": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "normal",
+                            "uniform",
+                            "fixed",
+                            "beta",
+                            "laplace",
+                            "triangular",
+                            "integers",
+                            "bernoulli"
+                          ]
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "mean": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "std": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "low": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "high": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "alpha": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "beta": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "loc": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "scale": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "left": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "mode": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "right": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "p": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "values": {
+                      "anyOf": [
+                        {},
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "imag": {
+                      "anyOf": [
+                        {},
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "source": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "anyOf": [
+                        {
+                          "const": "file"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "path": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "format": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "npy",
+                            "npz",
+                            "bin"
+                          ]
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "key": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "byte_order": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "little",
+                            "big"
+                          ]
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    },
+                    "sha256": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^[a-fA-F0-9]{64}$"
+                        },
+                        {
+                          "$ref": "#/$defs/placeholder"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "path"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "strides": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      {
+                        "$ref": "#/$defs/placeholder"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "storage_offset": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "base_shape": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      {
+                        "$ref": "#/$defs/placeholder"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "transforms": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "transpose",
+                          "slice"
+                        ]
+                      },
+                      "axes": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0
+                        }
+                      },
+                      "start": {
+                        "type": "array",
+                        "items": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
+                      },
+                      "stop": {
+                        "type": "array",
+                        "items": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
+                      },
+                      "step": {
+                        "type": "array",
+                        "items": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "constant": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            }
+          },
+          "required": [
+            "shape",
+            "dtype"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Za-z_]\\w*$"
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "binding": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "named",
+                    "positional"
+                  ]
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "kind": {
+              "const": "absent"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Za-z_]\\w*$"
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "binding": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "named",
+                    "positional"
+                  ]
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            },
+            "kind": {
+              "const": "tensor_list"
+            },
+            "items": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/inputV2"
+                  }
+                },
+                {
+                  "$ref": "#/$defs/placeholder"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "items"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "$ref": "#/$defs/placeholder"
+        }
+      ]
+    }
+  }
+}

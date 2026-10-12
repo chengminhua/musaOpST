@@ -1,0 +1,4 @@
+interface:
+  display_name: "musaOpST 开发"
+  short_description: "修改测试平台或接入新后端，维护比较、快照和报告语义并完成相关回归"
+  default_prompt: "请使用 $musaopst-develop 完成本次仓库开发任务，先定位现有实现，再修改并验证相关行为。"

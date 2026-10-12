@@ -1,0 +1,18 @@
+include README.md LICENSE NOTICE pyproject.toml MANIFEST.in .gitignore AGENTS.md CONTRIBUTING.md CHANGELOG.md
+recursive-include musaopst *.py *.json *.mu *.cpp *.h *.hpp
+recursive-include examples *.json *.npy *.npz *.bin
+recursive-include tests *.py
+recursive-include tools *.py *.sh
+recursive-include docs *.md *.json *.py *.npy *.npz *.bin
+recursive-include skills *.md *.yaml *.py
+prune reports
+prune references
+prune runs
+prune workspace
+prune bundles
+prune .venv
+prune .venv-numpy126
+prune .deps
+prune .cache
+prune .musaopst-cache
+global-exclude __pycache__ *.py[cod]

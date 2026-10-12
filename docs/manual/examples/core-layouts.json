@@ -1,0 +1,126 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "explicit_input",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "strides": [
+            2
+          ],
+          "storage_offset": 3
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42
+    },
+    {
+      "name": "transpose_slice",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float32",
+          "base_shape": [
+            3,
+            8
+          ],
+          "transforms": [
+            {
+              "kind": "transpose",
+              "axes": [
+                1,
+                0
+              ]
+            },
+            {
+              "kind": "slice",
+              "start": [
+                1,
+                0
+              ],
+              "stop": [
+                8,
+                3
+              ],
+              "step": [
+                2,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42
+    },
+    {
+      "name": "inplace_alias",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:inplace",
+      "reference": "musaopst.examples.references:add",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "strides": [
+            2
+          ],
+          "storage_offset": 3
+        },
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "layout": {
+            "strides": [
+              2
+            ],
+            "storage_offset": 3,
+            "contiguous": false
+          },
+          "alias_input": 0
+        }
+      ],
+      "seed": 42
+    }
+  ]
+}

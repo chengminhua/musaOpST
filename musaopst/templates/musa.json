@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "name": "torch_softmax",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.torch_ops:softmax",
+      "inputs": [
+        {
+          "shape": [
+            4,
+            129
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4,
+            129
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "reference": "musaopst.examples.references:softmax",
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-06,
+        "rtol": 1e-05,
+        "nan": "reject",
+        "inf": "reject",
+        "max_mismatch_ratio": 0,
+        "max_failures": 8
+      },
+      "compare_by_dtype": {
+        "float16": {
+          "atol": 0.002,
+          "rtol": 0.002
+        },
+        "bfloat16": {
+          "atol": 0.02,
+          "rtol": 0.02
+        }
+      },
+      "benchmark": {
+        "enabled": false,
+        "warmup": 3,
+        "samples": 5,
+        "iterations": 10
+      },
+      "repeat": {
+        "count": 3,
+        "duration_s": 0
+      },
+      "timeout_s": 180,
+      "required": true
+    },
+    {
+      "name": "cpp_vector_add",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.cpp_ops:vector_add",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "reference": "musaopst.examples.references:add",
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-06,
+        "rtol": 1e-05,
+        "nan": "reject",
+        "inf": "reject",
+        "max_mismatch_ratio": 0,
+        "max_failures": 8
+      },
+      "compare_by_dtype": {
+        "float16": {
+          "atol": 0.002,
+          "rtol": 0.002
+        },
+        "bfloat16": {
+          "atol": 0.02,
+          "rtol": 0.02
+        }
+      },
+      "benchmark": {
+        "enabled": false,
+        "warmup": 3,
+        "samples": 5,
+        "iterations": 10
+      },
+      "repeat": {
+        "count": 3,
+        "duration_s": 0
+      },
+      "timeout_s": 180,
+      "required": true
+    },
+    {
+      "name": "triton_softmax",
+      "backend": "triton",
+      "entry": "musaopst.examples.triton_ops:softmax",
+      "inputs": [
+        {
+          "shape": [
+            4,
+            129
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4,
+            129
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "reference": "musaopst.examples.references:softmax",
+      "attrs": {
+        "dim": -1
+      },
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-06,
+        "rtol": 1e-05,
+        "nan": "reject",
+        "inf": "reject",
+        "max_mismatch_ratio": 0,
+        "max_failures": 8
+      },
+      "compare_by_dtype": {
+        "float16": {
+          "atol": 0.002,
+          "rtol": 0.002
+        },
+        "bfloat16": {
+          "atol": 0.02,
+          "rtol": 0.02
+        }
+      },
+      "benchmark": {
+        "enabled": false,
+        "warmup": 3,
+        "samples": 5,
+        "iterations": 10
+      },
+      "repeat": {
+        "count": 3,
+        "duration_s": 0
+      },
+      "timeout_s": 180,
+      "required": true
+    },
+    {
+      "name": "tilelang_vector_add",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.tilelang_ops:vector_add",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "reference": "musaopst.examples.references:add",
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-06,
+        "rtol": 1e-05,
+        "nan": "reject",
+        "inf": "reject",
+        "max_mismatch_ratio": 0,
+        "max_failures": 8
+      },
+      "compare_by_dtype": {
+        "float16": {
+          "atol": 0.002,
+          "rtol": 0.002
+        },
+        "bfloat16": {
+          "atol": 0.02,
+          "rtol": 0.02
+        }
+      },
+      "benchmark": {
+        "enabled": false,
+        "warmup": 3,
+        "samples": 5,
+        "iterations": 10
+      },
+      "repeat": {
+        "count": 3,
+        "duration_s": 0
+      },
+      "timeout_s": 180,
+      "required": true
+    },
+    {
+      "name": "native_vector_add",
+      "backend": "native",
+      "entry": "musaopst.examples.native_ops:vector_add",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          }
+        },
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "reference": "musaopst.examples.references:add",
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-06,
+        "rtol": 1e-05,
+        "nan": "reject",
+        "inf": "reject",
+        "max_mismatch_ratio": 0,
+        "max_failures": 8
+      },
+      "compare_by_dtype": {
+        "float16": {
+          "atol": 0.002,
+          "rtol": 0.002
+        },
+        "bfloat16": {
+          "atol": 0.02,
+          "rtol": 0.02
+        }
+      },
+      "benchmark": {
+        "enabled": false,
+        "warmup": 3,
+        "samples": 5,
+        "iterations": 10
+      },
+      "repeat": {
+        "count": 3,
+        "duration_s": 0
+      },
+      "timeout_s": 180,
+      "required": true
+    }
+  ]
+}

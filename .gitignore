@@ -1,0 +1,29 @@
+# Local Python environments and generated artifacts
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.cache/
+.pytest_cache/
+.musaopst-cache/
+.deps/
+.tmp/
+# Runtime results may contain local paths and device/environment information
+reports/
+acceptance*/
+runs/
+workspace/
+bundles/
+# Local credentials and editor state
+.env
+.env.*
+*.pem
+*.key
+.pypirc
+.vscode/
+.idea/
+.DS_Store

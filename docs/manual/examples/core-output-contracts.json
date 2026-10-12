@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "mixed_outputs",
+      "backend": "cpu",
+      "entry": "musaopst.examples.advanced_refs:cpu_pair",
+      "reference": "musaopst.examples.advanced_refs:cpu_pair_reference",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "shifted",
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "compare": {
+            "atol": 1e-06,
+            "rtol": 1e-06
+          }
+        },
+        {
+          "name": "indices",
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "seed": 42
+    }
+  ]
+}

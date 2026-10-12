@@ -1,0 +1,2052 @@
+{
+  "format_version": 1,
+  "meaning": "Current implementation scope; not a claim that every backend combination has current GPU acceptance.",
+  "features": [
+    {
+      "id": "F001",
+      "feature": "统一配置到报告闭环",
+      "implementation_status": "已实现",
+      "manual": "manual/execution.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "统一配置、独立参考、契约/数值比较、条件性能与报告流程。",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "统一配置、独立参考、契约/数值比较、条件性能与报告流程。",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "统一配置、独立参考、契约/数值比较、条件性能与报告流程。",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "统一配置、独立参考、契约/数值比较、条件性能与报告流程。",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "统一配置、独立参考、契约/数值比较、条件性能与报告流程。",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F002",
+      "feature": "参数化组合与名称筛选",
+      "implementation_status": "已实现",
+      "manual": "manual/configuration.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "参数笛卡尔积与符号绑定、有限约束；每个组合分别校验。",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "参数笛卡尔积与符号绑定、有限约束；每个组合分别校验。",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "参数笛卡尔积与符号绑定、有限约束；每个组合分别校验。",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "参数笛卡尔积与符号绑定、有限约束；每个组合分别校验。",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "参数笛卡尔积与符号绑定、有限约束；每个组合分别校验。",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F003",
+      "feature": "多输入、多输出与输出契约",
+      "implementation_status": "已实现",
+      "manual": "manual/output-contracts.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "输入树和逐输出政策已实现；不能从通用接口推定任意算子支持",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "输入树和逐输出政策已实现；不能从通用接口推定任意算子支持",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "输入树和逐输出政策已实现；不能从通用接口推定任意算子支持",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "输入树和逐输出政策已实现；不能从通用接口推定任意算子支持",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "输入树和逐输出政策已实现；不能从通用接口推定任意算子支持",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F004",
+      "feature": "独立参考与量化后升精度",
+      "implementation_status": "已实现",
+      "manual": "manual/reference.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "独立输入快照和可配置参考精度",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "独立输入快照和可配置参考精度",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "独立输入快照和可配置参考精度",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "独立输入快照和可配置参考精度",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "独立输入快照和可配置参考精度",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F005",
+      "feature": "精度误差与非有限值政策",
+      "implementation_status": "已实现",
+      "manual": "manual/comparison.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "默认不忽略超差；exact/逐输出/复数和额外指标需各自证据",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "默认不忽略超差；exact/逐输出/复数和额外指标需各自证据",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "默认不忽略超差；exact/逐输出/复数和额外指标需各自证据",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "默认不忽略超差；exact/逐输出/复数和额外指标需各自证据",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "默认不忽略超差；exact/逐输出/复数和额外指标需各自证据",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F006",
+      "feature": "基础Event性能采样",
+      "implementation_status": "已实现",
+      "manual": "manual/benchmarking.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "不把批均值P90写成单次尾延迟；新计时政策另列",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "不把批均值P90写成单次尾延迟；新计时政策另列",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "不把批均值P90写成单次尾延迟；新计时政策另列",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "不把批均值P90写成单次尾延迟；新计时政策另列",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "不把批均值P90写成单次尾延迟；新计时政策另列",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F007",
+      "feature": "JSON/Markdown/JUnit报告与CI退出",
+      "implementation_status": "已实现",
+      "manual": "manual/reports.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "EXPECTED_FAILURE不计入精度PASS；旧报告保留",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "EXPECTED_FAILURE不计入精度PASS；旧报告保留",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "EXPECTED_FAILURE不计入精度PASS；旧报告保留",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "EXPECTED_FAILURE不计入精度PASS；旧报告保留",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "EXPECTED_FAILURE不计入精度PASS；旧报告保留",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F008",
+      "feature": "五条MUSA后端统一接入",
+      "implementation_status": "已实现",
+      "manual": "manual/execution.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "五种后端共享配置、比较和报告，执行差异由适配器处理",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "五种后端共享配置、比较和报告，执行差异由适配器处理",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "五种后端共享配置、比较和报告，执行差异由适配器处理",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "五种后端共享配置、比较和报告，执行差异由适配器处理",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "五种后端共享配置、比较和报告，执行差异由适配器处理",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F009",
+      "feature": "算子原型自动生成配置",
+      "implementation_status": "部分实现",
+      "manual": "manual/prototype-import.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI",
+          "reason": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI",
+          "reason": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI",
+          "reason": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI",
+          "reason": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI",
+          "reason": "支持显式描述/受限INI/AST字面量/C++ JSON注释；不推断任意ABI"
+        }
+      }
+    },
+    {
+      "id": "F010",
+      "feature": "从模型抽取算子规格",
+      "implementation_status": "部分实现",
+      "manual": "manual/model-import.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。",
+          "reason": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。",
+          "reason": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。",
+          "reason": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。",
+          "reason": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。",
+          "reason": "已实现 ONNX/TF GraphDef 节点规格抽取并真实解析小模型；不自动生成独立参考、实际输入或可运行 MUSA 算子。"
+        }
+      }
+    },
+    {
+      "id": "F011",
+      "feature": "有限Fuzz与自定义生成器",
+      "implementation_status": "已实现",
+      "manual": "manual/fuzz.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "有限次数/尝试上限/种子/去重/约束拒绝；自定义生成器新进程超时",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "有限次数/尝试上限/种子/去重/约束拒绝；自定义生成器新进程超时",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "有限次数/尝试上限/种子/去重/约束拒绝；自定义生成器新进程超时",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "有限次数/尝试上限/种子/去重/约束拒绝；自定义生成器新进程超时",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "有限次数/尝试上限/种子/去重/约束拒绝；自定义生成器新进程超时",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F012",
+      "feature": "符号shape与动态编译描述",
+      "implementation_status": "部分实现",
+      "manual": "manual/dynamic-shapes.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "符号枚举/约束及显式 runtime compile_group/rebind 已实现；Torch eager动态调度不等于JIT；TileLang仅符号axpby入口，不能泛化全部算子。",
+          "reason": "符号枚举/约束及显式 runtime compile_group/rebind 已实现；Torch eager动态调度不等于JIT；TileLang仅符号axpby入口，不能泛化全部算子。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "符号枚举/约束及显式 runtime compile_group/rebind 已实现；Torch eager动态调度不等于JIT；TileLang仅符号axpby入口，不能泛化全部算子。",
+          "reason": "符号枚举/约束及显式 runtime compile_group/rebind 已实现；Torch eager动态调度不等于JIT；TileLang仅符号axpby入口，不能泛化全部算子。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "符号枚举/约束及显式 runtime compile_group/rebind 已实现；Torch eager动态调度不等于JIT；TileLang仅符号axpby入口，不能泛化全部算子。",
+          "reason": "符号枚举/约束及显式 runtime compile_group/rebind 已实现；Torch eager动态调度不等于JIT；TileLang仅符号axpby入口，不能泛化全部算子。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "符号枚举/约束及显式 runtime compile_group/rebind 已实现；Torch eager动态调度不等于JIT；TileLang仅符号axpby入口，不能泛化全部算子。",
+          "reason": "仅显式axpby_dynamic符号N接口；普通静态TileLang入口逐shape专门化，不是compile-once。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "符号枚举/约束及显式 runtime compile_group/rebind 已实现；Torch eager动态调度不等于JIT；TileLang仅符号axpby入口，不能泛化全部算子。",
+          "reason": "符号枚举/约束及显式 runtime compile_group/rebind 已实现；Torch eager动态调度不等于JIT；TileLang仅符号axpby入口，不能泛化全部算子。"
+        }
+      }
+    },
+    {
+      "id": "F013",
+      "feature": "可选输入",
+      "implementation_status": "已实现",
+      "manual": "manual/input-binding.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "显式absent/None，保留位置；每个kernel需接受该接口",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "显式absent/None，保留位置；每个kernel需接受该接口",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "显式absent/None，保留位置；每个kernel需接受该接口",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "显式absent/None，保留位置；每个kernel需接受该接口",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "显式absent/None，保留位置；每个kernel需接受该接口",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F014",
+      "feature": "命名输入与TensorList绑定",
+      "implementation_status": "已实现",
+      "manual": "manual/input-binding.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "bind_inputs按named/positional绑定callable，TensorList保持一个列表参数；内置求和接受非空列表。",
+          "reason": "新算子仍须实现对应参数签名。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "adapter保留输入树和names元数据，factory按case/inputs约定消费；内置TensorList求和仅恰好2项。",
+          "reason": "不将输入name自动推断成任意kernel ABI；任意长度TensorList未由这些示例实现。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "adapter保留输入树和names元数据，factory按case/inputs约定消费；内置TensorList求和仅恰好2项。",
+          "reason": "不将输入name自动推断成任意kernel ABI；任意长度TensorList未由这些示例实现。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "adapter保留输入树和names元数据，factory按case/inputs约定消费；内置TensorList求和仅恰好2项。",
+          "reason": "不将输入name自动推断成任意kernel ABI；任意长度TensorList未由这些示例实现。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "adapter保留输入树和names元数据，factory按case/inputs约定消费；内置TensorList求和仅恰好2项。",
+          "reason": "不将输入name自动推断成任意kernel ABI；任意长度TensorList未由这些示例实现。"
+        }
+      }
+    },
+    {
+      "id": "F015",
+      "feature": "标量属性类型",
+      "implementation_status": "已实现",
+      "manual": "manual/configuration.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "attr_types和描述文件属性类型/默认值/枚举检查",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "attr_types和描述文件属性类型/默认值/枚举检查",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "attr_types和描述文件属性类型/默认值/枚举检查",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "attr_types和描述文件属性类型/默认值/枚举检查",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "attr_types和描述文件属性类型/默认值/枚举检查",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F016",
+      "feature": "更多dtype",
+      "implementation_status": "部分实现",
+      "manual": "manual/input-generation.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "dtype通过torch实际张量上传与算子实现决定；当前advanced_ops.identity明确拒绝uint16/uint32的clone，不能泛化其他算子。",
+          "reason": "所选torch_musa clone不支持uint16/uint32；其余dtype仍须逐算子验收。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "identity按元素字节复制，可承载多dtype；axpby/reduction/matmul/softmax/fill等数值核只实现float32/float16/bfloat16。",
+          "reason": "字节复制通过不能证明复数/整数数学运算已实现。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "identity尝试后端可表示的实数/整数/bool dtype；数值示例限float32/float16/bfloat16；complex64/128显式Unsupported。",
+          "reason": "当前示例和所选后端不能降低复数tensor类型。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "identity尝试后端可表示的实数/整数/bool dtype；数值示例限float32/float16/bfloat16；complex64/128显式Unsupported。",
+          "reason": "当前示例和所选后端不能降低复数tensor类型。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "结构化文件协议实现float16/bfloat16/float32/float64、bool和有符号/无符号整数；无complex；数值kernel只实现float32/float16/bfloat16。",
+          "reason": "独立native文件协议未实现complex编码；dtype搬运不同于数值算子覆盖。"
+        }
+      }
+    },
+    {
+      "id": "F017",
+      "feature": "更多输入分布",
+      "implementation_status": "已实现",
+      "manual": "manual/input-generation.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "beta/laplace/triangular/integers/bernoulli等；不是所有任意分布变换",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "beta/laplace/triangular/integers/bernoulli等；不是所有任意分布变换",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "beta/laplace/triangular/integers/bernoulli等；不是所有任意分布变换",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "beta/laplace/triangular/integers/bernoulli等；不是所有任意分布变换",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "beta/laplace/triangular/integers/bernoulli等；不是所有任意分布变换",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F018",
+      "feature": "从文件读取输入",
+      "implementation_status": "已实现",
+      "manual": "manual/file-input.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "npy/npz/bin强shape/dtype/字节序/可选SHA；禁止pickle",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "npy/npz/bin强shape/dtype/字节序/可选SHA；禁止pickle",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "npy/npz/bin强shape/dtype/字节序/可选SHA；禁止pickle",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "npy/npz/bin强shape/dtype/字节序/可选SHA；禁止pickle",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "npy/npz/bin强shape/dtype/字节序/可选SHA；禁止pickle",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F019",
+      "feature": "原始格式与执行格式",
+      "implementation_status": "部分实现",
+      "manual": "manual/layouts.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换",
+          "reason": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换",
+          "reason": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换",
+          "reason": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换",
+          "reason": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换",
+          "reason": "显式stride/offset/transpose/slice已实现；未提供厂商私有blocked-format自动转换"
+        }
+      }
+    },
+    {
+      "id": "F020",
+      "feature": "编译期常量输入",
+      "implementation_status": "部分实现",
+      "manual": "manual/compiled-constants.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "未实现",
+          "scope": "constant字段能力检测与显式拒绝。",
+          "reason": "后端未提供编译时嵌入并消费输入常量的实现。"
+        },
+        "musa_cpp": {
+          "implementation": "未实现",
+          "scope": "constant字段能力检测与显式拒绝。",
+          "reason": "后端未提供编译时嵌入并消费输入常量的实现。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "仅Triton/TileLang的constant_scale：连续非空向量加有限标量常量、两输入同dtype，限float32/float16/bfloat16；把实际量化标量嵌入constexpr/TIR，记录常量与产物摘要。另三后端显式Unsupported。",
+          "reason": "受限非空连续向量+有限同dtype标量；需要产物变化证据，不能只看输出PASS。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "仅Triton/TileLang的constant_scale：连续非空向量加有限标量常量、两输入同dtype，限float32/float16/bfloat16；把实际量化标量嵌入constexpr/TIR，记录常量与产物摘要。另三后端显式Unsupported。",
+          "reason": "受限非空连续向量+有限同dtype标量；需要产物变化证据，不能只看输出PASS。"
+        },
+        "native": {
+          "implementation": "未实现",
+          "scope": "constant字段能力检测与显式拒绝。",
+          "reason": "后端未提供编译时嵌入并消费输入常量的实现。"
+        }
+      }
+    },
+    {
+      "id": "F021",
+      "feature": "自动生成完整测试工程",
+      "implementation_status": "已实现",
+      "manual": "manual/project-generation.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "六后端可编辑axpby工程，部分既有算子模板；任意算子仍需实现entry",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "六后端可编辑axpby工程，部分既有算子模板；任意算子仍需实现entry",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "六后端可编辑axpby工程，部分既有算子模板；任意算子仍需实现entry",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "六后端可编辑axpby工程，部分既有算子模板；任意算子仍需实现entry",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "六后端可编辑axpby工程，部分既有算子模板；任意算子仍需实现entry",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F022",
+      "feature": "原生kernel测试脚手架",
+      "implementation_status": "已实现",
+      "manual": "manual/backend-native.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "该行是原生C++/MUSA host脚手架，不是此后端自己的Python/JIT模板。",
+          "reason": "该后端工程模板由F021覆盖。"
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "结构化原生协议 host/JSON辅助库/构建描述/示例；明确协议",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "不适用",
+          "scope": "该行是原生C++/MUSA host脚手架，不是此后端自己的Python/JIT模板。",
+          "reason": "该后端工程模板由F021覆盖。"
+        },
+        "tilelang": {
+          "implementation": "不适用",
+          "scope": "该行是原生C++/MUSA host脚手架，不是此后端自己的Python/JIT模板。",
+          "reason": "该后端工程模板由F021覆盖。"
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "结构化原生协议 host/JSON辅助库/构建描述/示例；明确协议",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F023",
+      "feature": "通用原生执行协议",
+      "implementation_status": "已实现",
+      "manual": "manual/backend-native.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "显式结构化文件协议与实际元数据；不能自动调用任意.mu/.so",
+          "reason": "该项为独立native文件协议；tensor后端使用明确Python/torch接口。"
+        },
+        "musa_cpp": {
+          "implementation": "不适用",
+          "scope": "显式结构化文件协议与实际元数据；不能自动调用任意.mu/.so",
+          "reason": "该项为独立native文件协议；tensor后端使用明确Python/torch接口。"
+        },
+        "triton": {
+          "implementation": "不适用",
+          "scope": "显式结构化文件协议与实际元数据；不能自动调用任意.mu/.so",
+          "reason": "该项为独立native文件协议；tensor后端使用明确Python/torch接口。"
+        },
+        "tilelang": {
+          "implementation": "不适用",
+          "scope": "显式结构化文件协议与实际元数据；不能自动调用任意.mu/.so",
+          "reason": "该项为独立native文件协议；tensor后端使用明确Python/torch接口。"
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "显式结构化文件协议与实际元数据；不能自动调用任意.mu/.so",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F024",
+      "feature": "仅准备/仅构建/运行已有工程",
+      "implementation_status": "部分实现",
+      "manual": "manual/build.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。",
+          "reason": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。",
+          "reason": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。",
+          "reason": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。",
+          "reason": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。",
+          "reason": "data/prepare/build/run--prepared可执行；native和有build_descriptor的MUSA C++可独立构建/复用；Triton/TileLang运行期JIT不能离线假装构建完成。"
+        }
+      }
+    },
+    {
+      "id": "F025",
+      "feature": "开发机与运行机分离/主机交叉编译",
+      "implementation_status": "部分实现",
+      "manual": "manual/build.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。",
+          "reason": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。",
+          "reason": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。",
+          "reason": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。",
+          "reason": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。",
+          "reason": "源码/数据归档与显式GPU ISA目标可用；aarch64本地产物不是x86_64交叉编译，未建立完整主机交叉工具链与跨版本ABI兼容机制。"
+        }
+      }
+    },
+    {
+      "id": "F026",
+      "feature": "预期失败用例声明",
+      "implementation_status": "已实现",
+      "manual": "manual/expected-failures.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "匹配阶段/错误类型，EXPECTED_FAILURE单列；fatal故障不能吞掉",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "匹配阶段/错误类型，EXPECTED_FAILURE单列；fatal故障不能吞掉",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "匹配阶段/错误类型，EXPECTED_FAILURE单列；fatal故障不能吞掉",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "匹配阶段/错误类型，EXPECTED_FAILURE单列；fatal故障不能吞掉",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "匹配阶段/错误类型，EXPECTED_FAILURE单列；fatal故障不能吞掉",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F027",
+      "feature": "失败元素CSV",
+      "implementation_status": "已实现",
+      "manual": "manual/recompare.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "按同一比较器分块输出，有总行数限制和截断说明",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "按同一比较器分块输出，有总行数限制和截断说明",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "按同一比较器分块输出，有总行数限制和截断说明",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "按同一比较器分块输出，有总行数限制和截断说明",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "按同一比较器分块输出，有总行数限制和截断说明",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F028",
+      "feature": "Profiler与时间线",
+      "implementation_status": "部分实现",
+      "manual": "manual/profiling.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "torch tensor后端采用PrivateUse1采集且要求trace含GPU kernel；独立native进程未接原生profiler采集器，明确UNSUPPORTED。",
+          "reason": "torch tensor后端采用PrivateUse1采集且要求trace含GPU kernel；独立native进程未接原生profiler采集器，明确UNSUPPORTED。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "torch tensor后端采用PrivateUse1采集且要求trace含GPU kernel；独立native进程未接原生profiler采集器，明确UNSUPPORTED。",
+          "reason": "torch tensor后端采用PrivateUse1采集且要求trace含GPU kernel；独立native进程未接原生profiler采集器，明确UNSUPPORTED。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "torch tensor后端采用PrivateUse1采集且要求trace含GPU kernel；独立native进程未接原生profiler采集器，明确UNSUPPORTED。",
+          "reason": "torch tensor后端采用PrivateUse1采集且要求trace含GPU kernel；独立native进程未接原生profiler采集器，明确UNSUPPORTED。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "torch tensor后端采用PrivateUse1采集且要求trace含GPU kernel；独立native进程未接原生profiler采集器，明确UNSUPPORTED。",
+          "reason": "torch tensor后端采用PrivateUse1采集且要求trace含GPU kernel；独立native进程未接原生profiler采集器，明确UNSUPPORTED。"
+        },
+        "native": {
+          "implementation": "未实现",
+          "scope": "profile()明确Unsupported；独立子进程GPU事件需独立采集器。",
+          "reason": "没有接入native profiler provider，已有msys/mcu命令不等于已实现采集。"
+        }
+      }
+    },
+    {
+      "id": "F030",
+      "feature": "逐输出比较政策",
+      "implementation_status": "已实现",
+      "manual": "manual/comparison.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "schema 2使用case→dtype→output优先级；schema 1兼容原语义",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "schema 2使用case→dtype→output优先级；schema 1兼容原语义",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "schema 2使用case→dtype→output优先级；schema 1兼容原语义",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "schema 2使用case→dtype→output优先级；schema 1兼容原语义",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "schema 2使用case→dtype→output优先级；schema 1兼容原语义",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F031",
+      "feature": "丰富的非连续布局",
+      "implementation_status": "部分实现",
+      "manual": "manual/layouts.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制",
+          "reason": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制",
+          "reason": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制",
+          "reason": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制",
+          "reason": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制",
+          "reason": "非负stride/offset/转置/正步长slice；负stride和重叠写入明确限制"
+        }
+      }
+    },
+    {
+      "id": "F032",
+      "feature": "输出布局和别名契约",
+      "implementation_status": "已实现",
+      "manual": "manual/output-contracts.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "必须使用复制前设备元数据；离线快照不凭空证明别名",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "必须使用复制前设备元数据；离线快照不凭空证明别名",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "必须使用复制前设备元数据；离线快照不凭空证明别名",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "必须使用复制前设备元数据；离线快照不凭空证明别名",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "必须使用复制前设备元数据；离线快照不凭空证明别名",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F033",
+      "feature": "参数语义约束",
+      "implementation_status": "部分实现",
+      "manual": "manual/configuration.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器",
+          "reason": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器",
+          "reason": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器",
+          "reason": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器",
+          "reason": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器",
+          "reason": "提供固定比较/整除及输入维度/属性引用；不是通用表达式解释器"
+        }
+      }
+    },
+    {
+      "id": "F034",
+      "feature": "参考精度可配置",
+      "implementation_status": "已实现",
+      "manual": "manual/reference.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "float64/float32/preserve；浮点量化后才升精度",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "float64/float32/preserve；浮点量化后才升精度",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "float64/float32/preserve；浮点量化后才升精度",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "float64/float32/preserve；浮点量化后才升精度",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "float64/float32/preserve；浮点量化后才升精度",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F035",
+      "feature": "ULP/余弦/RMSE与自定义比较",
+      "implementation_status": "已实现",
+      "manual": "manual/comparison.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "内建ULP/余弦/RMSE以及自定义比较entry已实现；额外比较与默认契约/非有限/误差政策逻辑AND，异常不能变成PASS。",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "内建ULP/余弦/RMSE以及自定义比较entry已实现；额外比较与默认契约/非有限/误差政策逻辑AND，异常不能变成PASS。",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "内建ULP/余弦/RMSE以及自定义比较entry已实现；额外比较与默认契约/非有限/误差政策逻辑AND，异常不能变成PASS。",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "内建ULP/余弦/RMSE以及自定义比较entry已实现；额外比较与默认契约/非有限/误差政策逻辑AND，异常不能变成PASS。",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "内建ULP/余弦/RMSE以及自定义比较entry已实现；额外比较与默认契约/非有限/误差政策逻辑AND，异常不能变成PASS。",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F036",
+      "feature": "独立造数与离线重比较",
+      "implementation_status": "已实现",
+      "manual": "manual/data-preparation.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "data/compare CLI；原报告不覆盖，不算新增GPU执行",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "data/compare CLI；原报告不覆盖，不算新增GPU执行",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "data/compare CLI；原报告不覆盖，不算新增GPU执行",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "data/compare CLI；原报告不覆盖，不算新增GPU执行",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "data/compare CLI；原报告不覆盖，不算新增GPU执行",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F037",
+      "feature": "实际快照回放",
+      "implementation_status": "已实现",
+      "manual": "manual/replay.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "replay重建值和布局，校验快照SHA；旧无元数据情况明确限制",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "replay重建值和布局，校验快照SHA；旧无元数据情况明确限制",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "replay重建值和布局，校验快照SHA；旧无元数据情况明确限制",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "replay重建值和布局，校验快照SHA；旧无元数据情况明确限制",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "replay重建值和布局，校验快照SHA；旧无元数据情况明确限制",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F038",
+      "feature": "便携复现包",
+      "implementation_status": "部分实现",
+      "manual": "manual/bundle.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。",
+          "reason": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。",
+          "reason": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。",
+          "reason": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。",
+          "reason": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。",
+          "reason": "归档工具/入口/显式sources/相邻资源/快照及摘要；拒绝凭据/目录递归/冲突；不自动封装SDK和未知传递依赖，原源码变化明确记录。"
+        }
+      }
+    },
+    {
+      "id": "F039",
+      "feature": "跨运行编译缓存",
+      "implementation_status": "部分实现",
+      "manual": "manual/cache.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "native和MUSA C++有内容摘要持久缓存、artifact验证和显式预编译复用；Triton/TileLang依赖各自JIT缓存，未统一全部cache生命周期。",
+          "reason": "普通eager callable没有平台负责的编译步骤。"
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "内容摘要缓存、SHA校验、显式预编译复用，以及cache list/prune。",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "使用框架自身JIT缓存。",
+          "reason": "未统一框架JIT可搬移产物与缓存生命周期。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "使用框架自身JIT缓存。",
+          "reason": "未统一框架JIT可搬移产物与缓存生命周期。"
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "内容摘要缓存、SHA校验、显式预编译复用，以及cache list/prune。",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F040",
+      "feature": "后端doctor smoke",
+      "implementation_status": "已实现",
+      "manual": "manual/doctor.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "doctor --smoke与纯导入分开；五后端分别新进程执行",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "doctor --smoke与纯导入分开；五后端分别新进程执行",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "doctor --smoke与纯导入分开；五后端分别新进程执行",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "doctor --smoke与纯导入分开；五后端分别新进程执行",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "doctor --smoke与纯导入分开；五后端分别新进程执行",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F041",
+      "feature": "批量回归/标签/失败重跑/续跑/合并",
+      "implementation_status": "已实现",
+      "manual": "manual/regression.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "fresh、reused、imported分别统计；身份或快照不完整时不复用。",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "fresh、reused、imported分别统计；身份或快照不完整时不复用。",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "fresh、reused、imported分别统计；身份或快照不完整时不复用。",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "fresh、reused、imported分别统计；身份或快照不完整时不复用。",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "fresh、reused、imported分别统计；身份或快照不完整时不复用。",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F042",
+      "feature": "性能回归门禁",
+      "implementation_status": "已实现",
+      "manual": "manual/regression.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "仅可比环境/计时口径/形状生成退化判定，不能跨口径比较",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "仅可比环境/计时口径/形状生成退化判定，不能跨口径比较",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "仅可比环境/计时口径/形状生成退化判定，不能跨口径比较",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "仅可比环境/计时口径/形状生成退化判定，不能跨口径比较",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "仅可比环境/计时口径/形状生成退化判定，不能跨口径比较",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F043",
+      "feature": "更多计时政策",
+      "implementation_status": "部分实现",
+      "manual": "manual/benchmarking.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "支持批Event/单次Event/同步wall、stream与cache interference；interference不等于可证明硬件冷缓存，多后端模式受能力检测约束。",
+          "reason": "支持批Event/单次Event/同步wall、stream与cache interference；interference不等于可证明硬件冷缓存，多后端模式受能力检测约束。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "支持批Event/单次Event/同步wall、stream与cache interference；interference不等于可证明硬件冷缓存，多后端模式受能力检测约束。",
+          "reason": "支持批Event/单次Event/同步wall、stream与cache interference；interference不等于可证明硬件冷缓存，多后端模式受能力检测约束。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "支持批Event/单次Event/同步wall、stream与cache interference；interference不等于可证明硬件冷缓存，多后端模式受能力检测约束。",
+          "reason": "支持批Event/单次Event/同步wall、stream与cache interference；interference不等于可证明硬件冷缓存，多后端模式受能力检测约束。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "支持批Event/单次Event/同步wall、stream与cache interference；interference不等于可证明硬件冷缓存，多后端模式受能力检测约束。",
+          "reason": "支持批Event/单次Event/同步wall、stream与cache interference；interference不等于可证明硬件冷缓存，多后端模式受能力检测约束。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "结构化原生协议实际实现三种计时政策；vector_add_f32_v1仅batch_event/current/warm、禁止原地计时，其他政策执行前显式拒绝。",
+          "reason": "旧v1计时ABI不支持single_event/wall_time/独立流/缓存干扰。"
+        }
+      }
+    },
+    {
+      "id": "F044",
+      "feature": "原地算子性能测试",
+      "implementation_status": "部分实现",
+      "manual": "manual/benchmarking.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。",
+          "reason": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。",
+          "reason": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。",
+          "reason": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。",
+          "reason": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。",
+          "reason": "仅明确允许的single_event/wall_time原地测试，reset在指定计时边界执行；批Event原地循环拒绝，防止输入逐次漂移。"
+        }
+      }
+    },
+    {
+      "id": "F045",
+      "feature": "运行期动态输出shape",
+      "implementation_status": "部分实现",
+      "manual": "manual/output-contracts.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "平台独立参考shape契约已实现；torch_musa nonzero有直接示例，其它编译后端尚无通用变长输出示例及分配协议验收。",
+          "reason": "平台独立参考shape契约已实现；torch_musa nonzero有直接示例，其它编译后端尚无通用变长输出示例及分配协议验收。"
+        },
+        "musa_cpp": {
+          "implementation": "未实现",
+          "scope": "平台比较器接受实际变长输出元数据；内建该后端尚无变长输出kernel/分配闭环。",
+          "reason": "缺少此后端的具体动态输出示例和真实执行证据。"
+        },
+        "triton": {
+          "implementation": "未实现",
+          "scope": "平台比较器接受实际变长输出元数据；内建该后端尚无变长输出kernel/分配闭环。",
+          "reason": "缺少此后端的具体动态输出示例和真实执行证据。"
+        },
+        "tilelang": {
+          "implementation": "未实现",
+          "scope": "平台比较器接受实际变长输出元数据；内建该后端尚无变长输出kernel/分配闭环。",
+          "reason": "缺少此后端的具体动态输出示例和真实执行证据。"
+        },
+        "native": {
+          "implementation": "未实现",
+          "scope": "平台比较器接受实际变长输出元数据；内建该后端尚无变长输出kernel/分配闭环。",
+          "reason": "缺少此后端的具体动态输出示例和真实执行证据。"
+        }
+      }
+    },
+    {
+      "id": "F046",
+      "feature": "零输入算子",
+      "implementation_status": "已实现",
+      "manual": "manual/input-binding.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "支持空输入列表，各后端提供 fill 示例",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "支持空输入列表，各后端提供 fill 示例",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "支持空输入列表，各后端提供 fill 示例",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "支持空输入列表，各后端提供 fill 示例",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "支持空输入列表，各后端提供 fill 示例",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F047",
+      "feature": "更多算子与环境矩阵",
+      "implementation_status": "部分实现",
+      "manual": "manual/README.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。",
+          "reason": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。",
+          "reason": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。",
+          "reason": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。",
+          "reason": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。",
+          "reason": "axpby/sum_max/fill/identity/matmul/softmax/inplace等示例；多GPU架构/多SDK/多框架版本覆盖仍未穷尽。"
+        }
+      }
+    },
+    {
+      "id": "F050",
+      "feature": "避免.all布尔替代数值比较",
+      "implementation_status": "已实现",
+      "manual": "manual/comparison.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "始终真正逐元素比较；覆盖数值比较失败路径",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "始终真正逐元素比较；覆盖数值比较失败路径",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "始终真正逐元素比较；覆盖数值比较失败路径",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "始终真正逐元素比较；覆盖数值比较失败路径",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "始终真正逐元素比较；覆盖数值比较失败路径",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F051",
+      "feature": "显式逐元素 atol/rtol 精度阈值",
+      "implementation_status": "已实现",
+      "manual": "manual/comparison.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "有限值逐元素按 abs(actual-reference) <= atol + rtol*abs(reference) 判定；可按输出配置阈值，实际政策写入报告。",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "有限值逐元素按 abs(actual-reference) <= atol + rtol*abs(reference) 判定；可按输出配置阈值，实际政策写入报告。",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "有限值逐元素按 abs(actual-reference) <= atol + rtol*abs(reference) 判定；可按输出配置阈值，实际政策写入报告。",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "有限值逐元素按 abs(actual-reference) <= atol + rtol*abs(reference) 判定；可按输出配置阈值，实际政策写入报告。",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "有限值逐元素按 abs(actual-reference) <= atol + rtol*abs(reference) 判定；可按输出配置阈值，实际政策写入报告。",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F052",
+      "feature": "worker隔离/超时/严重故障停止",
+      "implementation_status": "已实现",
+      "manual": "manual/troubleshooting.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "新解释器、只终止自身进程组、不resetGPU、不承诺恢复",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "新解释器、只终止自身进程组、不resetGPU、不承诺恢复",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "新解释器、只终止自身进程组、不resetGPU、不承诺恢复",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "新解释器、只终止自身进程组、不resetGPU、不承诺恢复",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "新解释器、只终止自身进程组、不resetGPU、不承诺恢复",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F053",
+      "feature": "全跳过/必需未执行不能CI通过",
+      "implementation_status": "已实现",
+      "manual": "manual/reports.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "负向期望满足与精度PASS分别统计，必须保留覆盖",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "负向期望满足与精度PASS分别统计，必须保留覆盖",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "负向期望满足与精度PASS分别统计，必须保留覆盖",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "负向期望满足与精度PASS分别统计，必须保留覆盖",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "负向期望满足与精度PASS分别统计，必须保留覆盖",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F054",
+      "feature": "有限重复与活动/缓存显存统计",
+      "implementation_status": "部分实现",
+      "manual": "manual/repeat.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "部分实现",
+          "scope": "有限重复次数/时长与异常记录已实现；torch allocator可记录active/reserved，native只有运行时free/total，不冒充活动/缓存分配统计。",
+          "reason": "有限重复次数/时长与异常记录已实现；torch allocator可记录active/reserved，native只有运行时free/total，不冒充活动/缓存分配统计。"
+        },
+        "musa_cpp": {
+          "implementation": "部分实现",
+          "scope": "有限重复次数/时长与异常记录已实现；torch allocator可记录active/reserved，native只有运行时free/total，不冒充活动/缓存分配统计。",
+          "reason": "有限重复次数/时长与异常记录已实现；torch allocator可记录active/reserved，native只有运行时free/total，不冒充活动/缓存分配统计。"
+        },
+        "triton": {
+          "implementation": "部分实现",
+          "scope": "有限重复次数/时长与异常记录已实现；torch allocator可记录active/reserved，native只有运行时free/total，不冒充活动/缓存分配统计。",
+          "reason": "有限重复次数/时长与异常记录已实现；torch allocator可记录active/reserved，native只有运行时free/total，不冒充活动/缓存分配统计。"
+        },
+        "tilelang": {
+          "implementation": "部分实现",
+          "scope": "有限重复次数/时长与异常记录已实现；torch allocator可记录active/reserved，native只有运行时free/total，不冒充活动/缓存分配统计。",
+          "reason": "有限重复次数/时长与异常记录已实现；torch allocator可记录active/reserved，native只有运行时free/total，不冒充活动/缓存分配统计。"
+        },
+        "native": {
+          "implementation": "部分实现",
+          "scope": "有限重复次数/时长与异常记录已实现；torch allocator可记录active/reserved，native只有运行时free/total，不冒充活动/缓存分配统计。",
+          "reason": "有限重复可执行；native有free/total，active/reserved为unknown而非伪造。"
+        }
+      }
+    },
+    {
+      "id": "F055",
+      "feature": "CPU kernel仿真机制与MUSA仿真入口",
+      "implementation_status": "未实现",
+      "manual": "manual/troubleshooting.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "未实现",
+          "scope": "官方 MUSA kernel 仿真入口探测；尚无可运行接入。",
+          "reason": "环境未发现官方MUSA模拟器，缺少可验证最小执行闭环。"
+        },
+        "musa_cpp": {
+          "implementation": "未实现",
+          "scope": "官方 MUSA kernel 仿真入口探测；尚无可运行接入。",
+          "reason": "环境未发现官方MUSA模拟器，缺少可验证最小执行闭环。"
+        },
+        "triton": {
+          "implementation": "未实现",
+          "scope": "官方 MUSA kernel 仿真入口探测；尚无可运行接入。",
+          "reason": "环境未发现官方MUSA模拟器，缺少可验证最小执行闭环。"
+        },
+        "tilelang": {
+          "implementation": "未实现",
+          "scope": "官方 MUSA kernel 仿真入口探测；尚无可运行接入。",
+          "reason": "环境未发现官方MUSA模拟器，缺少可验证最小执行闭环。"
+        },
+        "native": {
+          "implementation": "未实现",
+          "scope": "官方 MUSA kernel 仿真入口探测；尚无可运行接入。",
+          "reason": "环境未发现官方MUSA模拟器，缺少可验证最小执行闭环。"
+        }
+      }
+    },
+    {
+      "id": "F056",
+      "feature": "远程调度/多卡/分布式/并发压力",
+      "implementation_status": "不适用",
+      "manual": "manual/troubleshooting.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；客户端显式远程验收不等于调度服务"
+        },
+        "musa_cpp": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；客户端显式远程验收不等于调度服务"
+        },
+        "triton": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；客户端显式远程验收不等于调度服务"
+        },
+        "tilelang": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；客户端显式远程验收不等于调度服务"
+        },
+        "native": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；客户端显式远程验收不等于调度服务"
+        }
+      }
+    },
+    {
+      "id": "F057",
+      "feature": "通用backward/gradcheck/opcheck",
+      "implementation_status": "不适用",
+      "manual": "manual/troubleshooting.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，不以占位入口宣称支持"
+        },
+        "musa_cpp": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，不以占位入口宣称支持"
+        },
+        "triton": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，不以占位入口宣称支持"
+        },
+        "tilelang": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，不以占位入口宣称支持"
+        },
+        "native": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，不以占位入口宣称支持"
+        }
+      }
+    },
+    {
+      "id": "F058",
+      "feature": "自动调优搜索",
+      "implementation_status": "不适用",
+      "manual": "manual/troubleshooting.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；性能采样不等于调优"
+        },
+        "musa_cpp": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；性能采样不等于调优"
+        },
+        "triton": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；性能采样不等于调优"
+        },
+        "tilelang": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；性能采样不等于调优"
+        },
+        "native": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；性能采样不等于调优"
+        }
+      }
+    },
+    {
+      "id": "F059",
+      "feature": "sanitizer/调试器/指令模拟器",
+      "implementation_status": "不适用",
+      "manual": "manual/troubleshooting.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；不主动运行越界或死锁GPU核"
+        },
+        "musa_cpp": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；不主动运行越界或死锁GPU核"
+        },
+        "triton": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；不主动运行越界或死锁GPU核"
+        },
+        "tilelang": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；不主动运行越界或死锁GPU核"
+        },
+        "native": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；不主动运行越界或死锁GPU核"
+        }
+      }
+    },
+    {
+      "id": "F060",
+      "feature": "mcu/msys深度集成",
+      "implementation_status": "不适用",
+      "manual": "manual/troubleshooting.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；profile为独立采集接口"
+        },
+        "musa_cpp": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；profile为独立采集接口"
+        },
+        "triton": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；profile为独立采集接口"
+        },
+        "tilelang": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；profile为独立采集接口"
+        },
+        "native": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除；profile为独立采集接口"
+        }
+      }
+    },
+    {
+      "id": "F061",
+      "feature": "GUI/数据库/远程调度服务",
+      "implementation_status": "不适用",
+      "manual": "manual/troubleshooting.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，继续使用Python CLI+JSON+文件报告"
+        },
+        "musa_cpp": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，继续使用Python CLI+JSON+文件报告"
+        },
+        "triton": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，继续使用Python CLI+JSON+文件报告"
+        },
+        "tilelang": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，继续使用Python CLI+JSON+文件报告"
+        },
+        "native": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "当前范围明确排除，继续使用Python CLI+JSON+文件报告"
+        }
+      }
+    },
+    {
+      "id": "F062",
+      "feature": "长期稳定性认证",
+      "implementation_status": "不适用",
+      "manual": "manual/troubleshooting.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "有限重复不支持此结论；不做共享卡长时间压力"
+        },
+        "musa_cpp": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "有限重复不支持此结论；不做共享卡长时间压力"
+        },
+        "triton": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "有限重复不支持此结论；不做共享卡长时间压力"
+        },
+        "tilelang": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "有限重复不支持此结论；不做共享卡长时间压力"
+        },
+        "native": {
+          "implementation": "不适用",
+          "scope": "",
+          "reason": "有限重复不支持此结论；不做共享卡长时间压力"
+        }
+      }
+    },
+    {
+      "id": "F063",
+      "feature": "平台抓错与GPU安全错误输出",
+      "implementation_status": "已实现",
+      "manual": "manual/expected-failures.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "支持受控错误数值、错误元数据及 CPU 超时示例；GPU 抓错通过安全扰动输出实现",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "支持受控错误数值、错误元数据及 CPU 超时示例；GPU 抓错通过安全扰动输出实现",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "支持受控错误数值、错误元数据及 CPU 超时示例；GPU 抓错通过安全扰动输出实现",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "支持受控错误数值、错误元数据及 CPU 超时示例；GPU 抓错通过安全扰动输出实现",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "支持受控错误数值、错误元数据及 CPU 超时示例；GPU 抓错通过安全扰动输出实现",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F064",
+      "feature": "新旧验收记录隔离",
+      "implementation_status": "已实现",
+      "manual": "manual/reports.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "原始报告不可改写；当前记录与历史归档分开保存。",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "原始报告不可改写；当前记录与历史归档分开保存。",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "原始报告不可改写；当前记录与历史归档分开保存。",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "原始报告不可改写；当前记录与历史归档分开保存。",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "原始报告不可改写；当前记录与历史归档分开保存。",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "id": "F065",
+      "feature": "每功能×每GPU后端状态矩阵",
+      "implementation_status": "已实现",
+      "manual": "manual/reports.md",
+      "backends": {
+        "torch_musa": {
+          "implementation": "已实现",
+          "scope": "每项功能分别记录五后端实现范围和限制；设备支持以实际运行结果为准。",
+          "reason": ""
+        },
+        "musa_cpp": {
+          "implementation": "已实现",
+          "scope": "每项功能分别记录五后端实现范围和限制；设备支持以实际运行结果为准。",
+          "reason": ""
+        },
+        "triton": {
+          "implementation": "已实现",
+          "scope": "每项功能分别记录五后端实现范围和限制；设备支持以实际运行结果为准。",
+          "reason": ""
+        },
+        "tilelang": {
+          "implementation": "已实现",
+          "scope": "每项功能分别记录五后端实现范围和限制；设备支持以实际运行结果为准。",
+          "reason": ""
+        },
+        "native": {
+          "implementation": "已实现",
+          "scope": "每项功能分别记录五后端实现范围和限制；设备支持以实际运行结果为准。",
+          "reason": ""
+        }
+      }
+    }
+  ]
+}

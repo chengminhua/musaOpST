@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "axpby",
+      "backend": "cpu",
+      "entry": "musaopst.examples.advanced_refs:axpby",
+      "reference": "musaopst.examples.advanced_references:axpby",
+      "inputs": [
+        {
+          "shape": [
+            "${N}"
+          ],
+          "dtype": "${dtype}"
+        },
+        {
+          "shape": [
+            "${N}"
+          ],
+          "dtype": "${dtype}"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            "${N}"
+          ],
+          "dtype": "${dtype}"
+        }
+      ],
+      "seed": 42,
+      "symbols": {
+        "N": [
+          4,
+          8
+        ]
+      },
+      "parameters": {
+        "dtype": [
+          "float32",
+          "float64"
+        ]
+      },
+      "attrs": {
+        "alpha": 0.5,
+        "beta": -0.25
+      },
+      "attr_types": {
+        "alpha": "float",
+        "beta": "float"
+      },
+      "constraints": [
+        {
+          "left": {
+            "input": 0,
+            "axis": 0
+          },
+          "op": "eq",
+          "right": {
+            "input": 1,
+            "axis": 0
+          }
+        },
+        {
+          "left": {
+            "input": 0,
+            "axis": 0
+          },
+          "op": "divisible",
+          "right": 4
+        }
+      ]
+    }
+  ],
+  "defaults": {
+    "compare": {
+      "atol": 1e-06,
+      "rtol": 1e-06
+    }
+  }
+}

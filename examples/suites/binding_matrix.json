@@ -1,0 +1,660 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "torch_musa_optional_absent",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "kind": "absent"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_absent"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "torch_musa_optional_present",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_present"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "torch_musa_tensor_list",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.advanced_ops:tensor_list_sum",
+      "reference": "musaopst.examples.advanced_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "items": [
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            },
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "tensor_list"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "musa_cpp_optional_absent",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "kind": "absent"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_absent"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "musa_cpp_optional_present",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_present"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "musa_cpp_tensor_list",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:tensor_list_sum",
+      "reference": "musaopst.examples.advanced_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "items": [
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            },
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "tensor_list"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "triton_optional_absent",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "kind": "absent"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_absent"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "triton_optional_present",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_present"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "triton_tensor_list",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:tensor_list_sum",
+      "reference": "musaopst.examples.advanced_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "items": [
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            },
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "tensor_list"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "tilelang_optional_absent",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "kind": "absent"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_absent"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "tilelang_optional_present",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_present"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "tilelang_tensor_list",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:tensor_list_sum",
+      "reference": "musaopst.examples.advanced_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "items": [
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            },
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "tensor_list"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "native_optional_absent",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "kind": "absent"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_absent"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "native_optional_present",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:optional_add",
+      "reference": "musaopst.examples.advanced_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "optional_present"
+      ],
+      "timeout_s": 180
+    },
+    {
+      "name": "native_tensor_list",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:tensor_list_sum",
+      "reference": "musaopst.examples.advanced_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "items": [
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            },
+            {
+              "shape": [
+                17
+              ],
+              "dtype": "float32",
+              "distribution": {
+                "kind": "normal"
+              }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "tags": [
+        "extended",
+        "binding",
+        "tensor_list"
+      ],
+      "timeout_s": 180
+    }
+  ]
+}

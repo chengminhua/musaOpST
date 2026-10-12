@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77.0.3", "packaging>=24.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "musaopst"
+version = "0.1.0"
+description = "musaOpST: single-operator correctness and performance testing for MUSA"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24"]
+license = "MulanPSL-2.0"
+license-files = ["LICENSE", "NOTICE"]
+keywords = ["musa", "operator-testing", "torch-musa", "triton", "tilelang"]
+
+[project.optional-dependencies]
+onnx = ["onnx>=1.14"]
+tf-spec = ["tensorboard>=2.14"]
+
+[project.scripts]
+musaopst = "musaopst.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["musaopst*"]
+
+[tool.setuptools.package-data]
+musaopst = ["schema.json", "examples/*.mu", "examples/*.cpp", "examples/*.h", "examples/*.hpp", "templates/*"]

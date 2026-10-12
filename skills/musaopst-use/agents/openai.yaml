@@ -1,0 +1,4 @@
+interface:
+  display_name: "musaOpST 使用"
+  short_description: "配置并运行单算子测试，检查精度、性能和复现报告，区分离线与设备验证"
+  default_prompt: "请使用 $musaopst-use 帮我配置并执行本次单算子测试，保留可复现报告并明确验证范围。"

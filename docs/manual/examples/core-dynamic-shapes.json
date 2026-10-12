@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "runtime_identity",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            "${N}"
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            "${N}"
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42,
+      "symbols": {
+        "N": [
+          1,
+          17,
+          513
+        ]
+      },
+      "shape_mode": "runtime",
+      "compile_group": "identity_runtime"
+    }
+  ]
+}

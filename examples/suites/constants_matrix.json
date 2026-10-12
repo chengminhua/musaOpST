@@ -1,0 +1,955 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "torch_musa_compiled_constant_float32_1",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.constant_ops:unsupported",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "torch_musa_compiled_constant_float32_2",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.constant_ops:unsupported",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 2
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "torch_musa_compiled_constant_float32_3",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.constant_ops:unsupported",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 3
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "musa_cpp_compiled_constant_float32_1",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.constant_ops:unsupported",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "musa_cpp_compiled_constant_float32_2",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.constant_ops:unsupported",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 2
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "musa_cpp_compiled_constant_float32_3",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.constant_ops:unsupported",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 3
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "triton_compiled_constant_float32_1",
+      "backend": "triton",
+      "entry": "musaopst.examples.constant_ops:triton_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "triton_compiled_constant_float32_2",
+      "backend": "triton",
+      "entry": "musaopst.examples.constant_ops:triton_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 2
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "triton_compiled_constant_float32_3",
+      "backend": "triton",
+      "entry": "musaopst.examples.constant_ops:triton_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 3
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "triton_compiled_constant_float16_1p1",
+      "backend": "triton",
+      "entry": "musaopst.examples.constant_ops:triton_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float16",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 1.1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "triton_compiled_constant_bfloat16_1p1",
+      "backend": "triton",
+      "entry": "musaopst.examples.constant_ops:triton_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "bfloat16",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 1.1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "tilelang_compiled_constant_float32_1",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.constant_ops:tilelang_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "tilelang_compiled_constant_float32_2",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.constant_ops:tilelang_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 2
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "tilelang_compiled_constant_float32_3",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.constant_ops:tilelang_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 3
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "tilelang_compiled_constant_float16_1p1",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.constant_ops:tilelang_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float16",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 1.1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "compare": {
+        "atol": 0.003,
+        "rtol": 0.003
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "tilelang_compiled_constant_bfloat16_1p1",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.constant_ops:tilelang_scale",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "bfloat16",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 1.1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "bfloat16"
+        }
+      ],
+      "compare": {
+        "atol": 0.03,
+        "rtol": 0.02
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "native_compiled_constant_float32_1",
+      "backend": "native",
+      "entry": "musaopst.examples.constant_ops:unsupported",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "native_compiled_constant_float32_2",
+      "backend": "native",
+      "entry": "musaopst.examples.constant_ops:unsupported",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 2
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    },
+    {
+      "name": "native_compiled_constant_float32_3",
+      "backend": "native",
+      "entry": "musaopst.examples.constant_ops:unsupported",
+      "reference": "musaopst.examples.constant_reference:scale",
+      "inputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [],
+          "dtype": "float32",
+          "constant": true,
+          "distribution": {
+            "kind": "fixed",
+            "values": 3
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            257
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "atol": 1e-05,
+        "rtol": 1e-05
+      },
+      "benchmark": {
+        "enabled": true,
+        "warmup": 1,
+        "samples": 3,
+        "iterations": 2
+      },
+      "tags": [
+        "extended",
+        "constant_input",
+        "compiled_constant"
+      ],
+      "timeout_s": 240
+    }
+  ]
+}

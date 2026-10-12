@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "name": "offline_two_outputs",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:pair",
+      "inputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "fixed",
+            "values": 0.5
+          }
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        },
+        {
+          "shape": [
+            17
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "reference": "musaopst.examples.references:pair",
+      "attrs": {},
+      "seed": 20261010,
+      "compare": {
+        "atol": 1e-06,
+        "rtol": 1e-05,
+        "nan": "reject",
+        "inf": "reject",
+        "max_mismatch_ratio": 0,
+        "max_failures": 8
+      },
+      "compare_by_dtype": {
+        "float16": {
+          "atol": 0.002,
+          "rtol": 0.002
+        },
+        "bfloat16": {
+          "atol": 0.02,
+          "rtol": 0.02
+        }
+      },
+      "benchmark": {
+        "enabled": false,
+        "warmup": 3,
+        "samples": 5,
+        "iterations": 10
+      },
+      "repeat": {
+        "count": 3,
+        "duration_s": 0
+      },
+      "timeout_s": 180,
+      "required": true
+    }
+  ]
+}

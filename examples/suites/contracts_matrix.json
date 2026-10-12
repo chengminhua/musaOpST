@@ -1,0 +1,2398 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "torch_musa_named_optional_absent",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "kind": "absent",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "torch_musa_named_optional_present",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "torch_musa_tensor_list",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:tensor_list_sum",
+      "reference": "musaopst.examples.contract_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "name": "xs",
+          "items": [
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            },
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "torch_musa_zero_input",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:fill",
+      "reference": "musaopst.examples.contract_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            2,
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          2,
+          9
+        ],
+        "dtype": "float32",
+        "value": 0.75
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_musa_empty_identity",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_musa_inplace_alias_strides",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:inplace_add",
+      "reference": "musaopst.examples.contract_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "strides": [
+            2
+          ],
+          "storage_offset": 3
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "layout": {
+            "strides": [
+              2
+            ],
+            "storage_offset": 3,
+            "contiguous": false
+          },
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.5
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa",
+        "alias",
+        "inplace",
+        "timing"
+      ],
+      "benchmark": {
+        "enabled": true,
+        "mode": "single_event",
+        "warmup": 1,
+        "samples": 3,
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "musa_cpp_named_optional_absent",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "kind": "absent",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "musa_cpp"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "musa_cpp_named_optional_present",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "musa_cpp"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "musa_cpp_tensor_list",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:tensor_list_sum",
+      "reference": "musaopst.examples.contract_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "name": "xs",
+          "items": [
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            },
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "musa_cpp"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "musa_cpp_zero_input",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:fill",
+      "reference": "musaopst.examples.contract_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            2,
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          2,
+          9
+        ],
+        "dtype": "float32",
+        "value": 0.75
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "musa_cpp"
+      ]
+    },
+    {
+      "name": "musa_cpp_empty_identity",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "musa_cpp"
+      ]
+    },
+    {
+      "name": "musa_cpp_inplace_alias_strides",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:inplace_add",
+      "reference": "musaopst.examples.contract_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "strides": [
+            2
+          ],
+          "storage_offset": 3
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "layout": {
+            "strides": [
+              2
+            ],
+            "storage_offset": 3,
+            "contiguous": false
+          },
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.5
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "musa_cpp",
+        "alias",
+        "inplace",
+        "timing"
+      ],
+      "benchmark": {
+        "enabled": true,
+        "mode": "single_event",
+        "warmup": 1,
+        "samples": 3,
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "triton_named_optional_absent",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "kind": "absent",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "triton"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "triton_named_optional_present",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "triton"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "triton_tensor_list",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:tensor_list_sum",
+      "reference": "musaopst.examples.contract_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "name": "xs",
+          "items": [
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            },
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "triton"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "triton_zero_input",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:fill",
+      "reference": "musaopst.examples.contract_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            2,
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          2,
+          9
+        ],
+        "dtype": "float32",
+        "value": 0.75
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "triton"
+      ]
+    },
+    {
+      "name": "triton_empty_identity",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "triton"
+      ]
+    },
+    {
+      "name": "triton_inplace_alias_strides",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:inplace_add",
+      "reference": "musaopst.examples.contract_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "strides": [
+            2
+          ],
+          "storage_offset": 3
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "layout": {
+            "strides": [
+              2
+            ],
+            "storage_offset": 3,
+            "contiguous": false
+          },
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.5
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "triton",
+        "alias",
+        "inplace",
+        "timing"
+      ],
+      "benchmark": {
+        "enabled": true,
+        "mode": "single_event",
+        "warmup": 1,
+        "samples": 3,
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "tilelang_named_optional_absent",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "kind": "absent",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "tilelang"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "tilelang_named_optional_present",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "tilelang"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "tilelang_tensor_list",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:tensor_list_sum",
+      "reference": "musaopst.examples.contract_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "name": "xs",
+          "items": [
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            },
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "tilelang"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "tilelang_zero_input",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:fill",
+      "reference": "musaopst.examples.contract_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            2,
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          2,
+          9
+        ],
+        "dtype": "float32",
+        "value": 0.75
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "tilelang"
+      ]
+    },
+    {
+      "name": "tilelang_empty_identity",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "tilelang"
+      ]
+    },
+    {
+      "name": "tilelang_inplace_alias_strides",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:inplace_add",
+      "reference": "musaopst.examples.contract_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "strides": [
+            2
+          ],
+          "storage_offset": 3
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "layout": {
+            "strides": [
+              2
+            ],
+            "storage_offset": 3,
+            "contiguous": false
+          },
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.5
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "tilelang",
+        "alias",
+        "inplace",
+        "timing"
+      ],
+      "benchmark": {
+        "enabled": true,
+        "mode": "single_event",
+        "warmup": 1,
+        "samples": 3,
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "native_named_optional_absent",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "kind": "absent",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "native"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "native_named_optional_present",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:optional_add",
+      "reference": "musaopst.examples.contract_references:optional_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "a"
+        },
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "name": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "native"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "native_tensor_list",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:tensor_list_sum",
+      "reference": "musaopst.examples.contract_references:tensor_list_sum",
+      "inputs": [
+        {
+          "kind": "tensor_list",
+          "name": "xs",
+          "items": [
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            },
+            {
+              "shape": [
+                9
+              ],
+              "dtype": "float32"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "native"
+      ],
+      "binding": "named"
+    },
+    {
+      "name": "native_zero_input",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:fill",
+      "reference": "musaopst.examples.contract_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            2,
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          2,
+          9
+        ],
+        "dtype": "float32",
+        "value": 0.75
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "native"
+      ]
+    },
+    {
+      "name": "native_empty_identity",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "native"
+      ]
+    },
+    {
+      "name": "native_inplace_alias_strides",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:inplace_add",
+      "reference": "musaopst.examples.contract_references:inplace_add",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "strides": [
+            2
+          ],
+          "storage_offset": 3
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "layout": {
+            "strides": [
+              2
+            ],
+            "storage_offset": 3,
+            "contiguous": false
+          },
+          "alias_input": 0
+        }
+      ],
+      "attrs": {
+        "value": 0.5
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "native",
+        "alias",
+        "inplace",
+        "timing"
+      ],
+      "benchmark": {
+        "enabled": true,
+        "mode": "single_event",
+        "warmup": 1,
+        "samples": 3,
+        "allow_inplace": true
+      }
+    },
+    {
+      "name": "torch_mixed_dtype_outputs",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:max_with_index",
+      "reference": "musaopst.examples.contract_references:max_with_index",
+      "inputs": [
+        {
+          "shape": [
+            2,
+            5
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              [
+                1.25,
+                -2,
+                4.5,
+                0,
+                3
+              ],
+              [
+                -9,
+                1.5,
+                7,
+                -4,
+                2
+              ]
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "float32",
+          "compare": {
+            "atol": 1e-06,
+            "rtol": 1e-06
+          }
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_data_dependent_3",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:positive_coordinates",
+      "reference": "musaopst.examples.contract_references:positive_coordinates",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            7
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": "reference",
+          "rank": 2,
+          "max_elements": 42,
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_data_dependent_0",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:positive_coordinates",
+      "reference": "musaopst.examples.contract_references:positive_coordinates",
+      "inputs": [
+        {
+          "shape": [
+            0,
+            7
+          ],
+          "dtype": "float32",
+          "distribution": {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": "reference",
+          "rank": 2,
+          "max_elements": 42,
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_output_alias_view",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:strided_view",
+      "reference": "musaopst.examples.contract_references:strided_view",
+      "inputs": [
+        {
+          "shape": [
+            3,
+            8
+          ],
+          "dtype": "float32",
+          "name": "a",
+          "strides": [
+            19,
+            2
+          ],
+          "storage_offset": 3
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3,
+            4
+          ],
+          "dtype": "float32",
+          "layout": {
+            "strides": [
+              19,
+              4
+            ],
+            "storage_offset": 5,
+            "contiguous": false
+          },
+          "alias_input": "a"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_empty_zero_input",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:fill",
+      "reference": "musaopst.examples.contract_references:fill",
+      "inputs": [],
+      "outputs": [
+        {
+          "shape": [
+            0
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {
+        "shape": [
+          0
+        ],
+        "dtype": "float32",
+        "value": 1
+      },
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_musa_int64_extremes",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              -9223372036854775808,
+              9223372036854775807,
+              0,
+              -1
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ],
+      "reference_policy": "preserve"
+    },
+    {
+      "name": "musa_cpp_int64_extremes",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              -9223372036854775808,
+              9223372036854775807,
+              0,
+              -1
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "musa_cpp"
+      ],
+      "reference_policy": "preserve"
+    },
+    {
+      "name": "triton_int64_extremes",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              -9223372036854775808,
+              9223372036854775807,
+              0,
+              -1
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "triton"
+      ],
+      "reference_policy": "preserve"
+    },
+    {
+      "name": "native_int64_extremes",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              -9223372036854775808,
+              9223372036854775807,
+              0,
+              -1
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "int64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "native"
+      ],
+      "reference_policy": "preserve"
+    },
+    {
+      "name": "native_uint64_extremes",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            3
+          ],
+          "dtype": "uint64",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              0,
+              18446744073709551615,
+              18446744073709551614
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3
+          ],
+          "dtype": "uint64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "native"
+      ],
+      "reference_policy": "preserve"
+    },
+    {
+      "name": "torch_complex64_identity",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            3
+          ],
+          "dtype": "complex64",
+          "distribution": {
+            "kind": "fixed",
+            "values": [
+              1,
+              -2,
+              0.125
+            ],
+            "imag": [
+              0.5,
+              3,
+              -4
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            3
+          ],
+          "dtype": "complex64",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ],
+      "reference_policy": "preserve"
+    },
+    {
+      "name": "torch_safe_value_negative",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:safe_corrupt",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa",
+        "negative"
+      ],
+      "expect": {
+        "status": "ACCURACY_FAILED",
+        "stage": "compare",
+        "exception": "ComparisonFailure"
+      }
+    },
+    {
+      "name": "torch_safe_layout_negative",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            9
+          ],
+          "dtype": "float32",
+          "layout": {
+            "strides": [
+              2
+            ]
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "negative",
+        "torch_musa"
+      ],
+      "expect": {
+        "status": "ACCURACY_FAILED",
+        "stage": "compare",
+        "exception": "ComparisonFailure"
+      }
+    },
+    {
+      "name": "torch_file_npy",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "float32",
+          "source": {
+            "path": "contract-input.npy",
+            "format": "npy",
+            "sha256": "af65e5c8dfd26537bf77014339d08be7cc5e7fe4608118f728d4a4771dc986aa"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "float32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_file_npz",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "float32",
+          "source": {
+            "path": "contract-input.npz",
+            "format": "npz",
+            "sha256": "f581c92b84f0cdcbbe8dbbbbc490057566856d1209505b303b165d497672cc85",
+            "key": "actual"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "float32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_file_bf16_bin",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "bfloat16",
+          "source": {
+            "path": "contract-input-bf16.bin",
+            "format": "bin",
+            "sha256": "51b3a31864f991fdd0018f63ee093c84716c0fc16c1b6a0fcc8aac863f1aa833",
+            "byte_order": "little"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "bfloat16",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "attrs": {},
+      "seed": 20261010,
+      "timeout_s": 240,
+      "repeat": {
+        "count": 1
+      },
+      "tags": [
+        "extended",
+        "contracts",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_musa_transpose_slice_input",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "base_shape": [
+            3,
+            8
+          ],
+          "dtype": "float32",
+          "transforms": [
+            {
+              "kind": "transpose",
+              "axes": [
+                1,
+                0
+              ]
+            },
+            {
+              "kind": "slice",
+              "start": [
+                1,
+                0
+              ],
+              "stop": [
+                8,
+                3
+              ],
+              "step": [
+                2,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "seed": 20261010,
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "tags": [
+        "extended",
+        "contracts",
+        "transforms",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "musa_cpp_transpose_slice_input",
+      "backend": "musa_cpp",
+      "entry": "musaopst.examples.advanced_cpp:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "base_shape": [
+            3,
+            8
+          ],
+          "dtype": "float32",
+          "transforms": [
+            {
+              "kind": "transpose",
+              "axes": [
+                1,
+                0
+              ]
+            },
+            {
+              "kind": "slice",
+              "start": [
+                1,
+                0
+              ],
+              "stop": [
+                8,
+                3
+              ],
+              "step": [
+                2,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "seed": 20261010,
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "tags": [
+        "extended",
+        "contracts",
+        "transforms",
+        "musa_cpp"
+      ]
+    },
+    {
+      "name": "triton_transpose_slice_input",
+      "backend": "triton",
+      "entry": "musaopst.examples.advanced_triton:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "base_shape": [
+            3,
+            8
+          ],
+          "dtype": "float32",
+          "transforms": [
+            {
+              "kind": "transpose",
+              "axes": [
+                1,
+                0
+              ]
+            },
+            {
+              "kind": "slice",
+              "start": [
+                1,
+                0
+              ],
+              "stop": [
+                8,
+                3
+              ],
+              "step": [
+                2,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "seed": 20261010,
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "tags": [
+        "extended",
+        "contracts",
+        "transforms",
+        "triton"
+      ]
+    },
+    {
+      "name": "tilelang_transpose_slice_input",
+      "backend": "tilelang",
+      "entry": "musaopst.examples.advanced_tilelang:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "base_shape": [
+            3,
+            8
+          ],
+          "dtype": "float32",
+          "transforms": [
+            {
+              "kind": "transpose",
+              "axes": [
+                1,
+                0
+              ]
+            },
+            {
+              "kind": "slice",
+              "start": [
+                1,
+                0
+              ],
+              "stop": [
+                8,
+                3
+              ],
+              "step": [
+                2,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "seed": 20261010,
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "tags": [
+        "extended",
+        "contracts",
+        "transforms",
+        "tilelang"
+      ]
+    },
+    {
+      "name": "native_transpose_slice_input",
+      "backend": "native",
+      "entry": "musaopst.examples.native_protocol_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "base_shape": [
+            3,
+            8
+          ],
+          "dtype": "float32",
+          "transforms": [
+            {
+              "kind": "transpose",
+              "axes": [
+                1,
+                0
+              ]
+            },
+            {
+              "kind": "slice",
+              "start": [
+                1,
+                0
+              ],
+              "stop": [
+                8,
+                3
+              ],
+              "step": [
+                2,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4,
+            3
+          ],
+          "dtype": "float32",
+          "compare": {
+            "exact": true
+          }
+        }
+      ],
+      "seed": 20261010,
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "tags": [
+        "extended",
+        "contracts",
+        "transforms",
+        "native"
+      ]
+    },
+    {
+      "name": "torch_nonfinite_accepted",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "source": {
+            "path": "contract-nonfinite.npy",
+            "format": "npy",
+            "sha256": "7431fc75bd1680109f82c81ff21e02aba4dae710451439688be826f3f01c3bb8"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "nan": "equal",
+        "inf": "same_sign"
+      },
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "tags": [
+        "extended",
+        "contracts",
+        "nonfinite",
+        "torch_musa"
+      ]
+    },
+    {
+      "name": "torch_nonfinite_rejected",
+      "backend": "torch_musa",
+      "entry": "musaopst.examples.contract_ops:identity",
+      "reference": "musaopst.examples.contract_references:identity",
+      "inputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "source": {
+            "path": "contract-nonfinite.npy",
+            "format": "npy",
+            "sha256": "7431fc75bd1680109f82c81ff21e02aba4dae710451439688be826f3f01c3bb8"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "compare": {
+        "nan": "reject",
+        "inf": "reject"
+      },
+      "repeat": {
+        "count": 1
+      },
+      "timeout_s": 240,
+      "tags": [
+        "extended",
+        "contracts",
+        "nonfinite",
+        "torch_musa"
+      ],
+      "expect": {
+        "status": "ACCURACY_FAILED",
+        "stage": "compare",
+        "exception": "ComparisonFailure"
+      }
+    }
+  ]
+}

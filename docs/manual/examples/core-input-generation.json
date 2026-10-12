@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "distribution",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:identity",
+      "reference": "musaopst.examples.references:identity",
+      "inputs": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "float32",
+          "distribution": "${distribution}"
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "seed": 42,
+      "parameters": {
+        "distribution": [
+          {
+            "kind": "normal",
+            "mean": 0,
+            "std": 1
+          },
+          {
+            "kind": "uniform",
+            "low": -1,
+            "high": 1
+          },
+          {
+            "kind": "beta",
+            "alpha": 2,
+            "beta": 5
+          },
+          {
+            "kind": "laplace",
+            "loc": 0,
+            "scale": 1
+          },
+          {
+            "kind": "triangular",
+            "left": -1,
+            "mode": 0,
+            "right": 1
+          },
+          {
+            "kind": "integers",
+            "low": 0,
+            "high": 10
+          },
+          {
+            "kind": "bernoulli",
+            "p": 0.25
+          },
+          {
+            "kind": "fixed",
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

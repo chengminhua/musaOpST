@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "cases": [
+    {
+      "name": "workflow_add",
+      "backend": "cpu",
+      "entry": "musaopst.examples.cpu_ops:add",
+      "reference": "musaopst.examples.references:add",
+      "inputs": [
+        {
+          "shape": [
+            "${n}"
+          ],
+          "dtype": "${dtype}",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal"
+          }
+        },
+        {
+          "shape": [
+            "${n}"
+          ],
+          "dtype": "${dtype}",
+          "layout": "contiguous",
+          "distribution": {
+            "kind": "normal"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            "${n}"
+          ],
+          "dtype": "${dtype}"
+        }
+      ],
+      "seed": 42,
+      "tags": [
+        "smoke",
+        "arithmetic"
+      ],
+      "parameters": {
+        "n": [
+          1,
+          17
+        ],
+        "dtype": [
+          "float32",
+          "float16"
+        ]
+      },
+      "compare": {
+        "atol": 1e-06,
+        "rtol": 1e-05
+      },
+      "compare_by_dtype": {
+        "float16": {
+          "atol": 0.002,
+          "rtol": 0.002
+        }
+      },
+      "repeat": {
+        "count": 0
+      },
+      "timeout_s": 30
+    }
+  ]
+}

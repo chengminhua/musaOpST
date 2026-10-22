@@ -24,7 +24,7 @@ description: 使用 musaOpST 编写或校验用例、运行单算子精度与性
 | 性能、Profiler、有限重复 | `docs/manual/benchmarking.md`、`profiling.md`、`repeat.md` | `run --benchmark`、`profile` |
 | 回放、复现、恢复与汇总 | `docs/manual/replay.md`、`bundle.md`、`regression.md`、`reports.md` | `replay`、`bundle`、`run --resume`、`report` |
 
-表内省略目录的手册文件同样位于 `docs/manual/`。先校验配置与展开结果，再运行用户需要的范围。`--case` 使用 shell 通配模式，要检查最终选中了多少用例；字面 `[` 可写成 `[[]`。所有结果写入新的空目录，保留原配置和原报告。
+表内省略目录的手册文件同样位于 `docs/manual/`。先校验配置与展开结果，再运行用户需要的范围。`--case` 接受 shell 通配模式或子串，要检查最终选中了多少用例；字面 `[` 可写成 `[[]`，名称不确定时先用 `--list-cases` 列出。所有结果写入新的空目录，保留原配置和原报告。
 
 以下是仅验证平台流程的 CPU 示例，在项目根目录、使用尚不存在的目录名执行：
 

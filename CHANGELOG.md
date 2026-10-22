@@ -1,5 +1,12 @@
 # 更新记录
 
+## 未发布
+
+- `--device` 现在在父进程、启动 worker 之前解析并校验：按 `torch.musa.set_device` 语义解释为可见设备列表内的序号，并打印序号到物理卡的映射（如 `--device 0 → 物理 GPU 6`）。越界以退出码 2 拒绝，不再产生 `ENVIRONMENT_ERROR`；`doctor`、`profile`、`replay` 共用同一解析器。
+- `results.json` 新增 `environment.device_resolution`（requested / ordinal / physical_id / visible_devices / method）；既有的 `environment.device_selection` 仍表示序号。`summary.md` 头部回显设备映射。
+- `--case` 支持子串匹配（通配符仍可用），零匹配时列出可用用例名并以退出码 2 结束；新增 `--list-cases` 只打印 name/backend/tags。`--tag` 零匹配使用同样的提示。
+- worker 中出现的 `invalid device ordinal` 在父进程重分类为 `CONFIG_ERROR`，并附带正确用法提示。
+
 ## v0.1.0 — 2026-10-12
 
 首次发布 musaOpST。

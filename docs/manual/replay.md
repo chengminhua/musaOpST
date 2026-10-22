@@ -13,6 +13,6 @@ python -m musaopst run docs/manual/examples/workflow-cpu.json --output runs/repl
 python -m musaopst replay runs/replay-source --output runs/replayed
 ```
 
-可用 `--case 'workflow_add[[]0]'` 选择手册示例中的第一个用例（`[[]` 匹配名称里的 `[`），用 `--device 0` 选择当前 GPU 逻辑设备。
+可用 `--case 'workflow_add[[]0]'` 选择手册示例中的第一个用例（`[[]` 匹配名称里的 `[`，也可直接传子串），用 `--device 0` 选择当前 GPU 逻辑设备（可见列表内的序号，不是物理编号）。
 
 预期产物：`runs/replayed-inputs/` 含回放配置、输入快照、来源摘要和模块搜索信息；`runs/replayed/` 含本次新执行报告。原报告不变。CPU 回放仍是 CPU 测试；真实 GPU 回放才会形成新的 GPU 执行记录。

@@ -94,6 +94,27 @@ python -m musaopst init demo-musa --backend torch_musa
 python -m musaopst run demo-musa/cases.json --device 0 --output runs/demo-musa
 ```
 
+`--device` 是**当前进程可见设备列表内的序号**（与 `torch.musa.set_device` 语义一致），不是物理 GPU 编号；启动时会打印序号到物理卡的映射。容器按 `MUSA_VISIBLE_DEVICES` 重新编号后应传 `0`：
+
+| 可见性 | 用法与含义 |
+|---|---|
+| `MUSA_VISIBLE_DEVICES=6` | `--device 0` → 物理 GPU 6（列表只有一项） |
+| `MUSA_VISIBLE_DEVICES=2,5` | `--device 0` → 物理 GPU 2；`--device 1` → 物理 GPU 5 |
+| 未设置，机器有 8 张卡 | `--device 1` → 物理 GPU 1 |
+
+越界会在启动 worker 前以退出码 2 拒绝，并打印请求值、可见列表和正确用法；例如 `MUSA_VISIBLE_DEVICES=6` 时传 `--device 6` 会提示改用 `--device 0`。这属于参数错误，不会记为 `ENVIRONMENT_ERROR`。`doctor`、`profile`、`replay` 使用同一套解析规则。CPU 平台用例不做设备校验。
+
+```bash
+MUSA_VISIBLE_DEVICES=6 python -m musaopst run cases/benchmark.json \
+  --case '*sparse_attn_bwd_csa*' --benchmark --device 0 --output runs/attn-bwd
+```
+
+`--case` 同时接受通配符和子串：`--case '*sparse_attn_bwd_csa*'` 与 `--case sparse_attn_bwd_csa` 等价；零匹配时会列出可用用例名并以退出码 2 结束。不确定名称时先列出来：
+
+```bash
+python -m musaopst run cases/benchmark.json --list-cases
+```
+
 切换到 `musa_cpp`、`triton`、`tilelang` 或 `native` 可生成对应工程。只需验证某一后端时，可使用 `doctor --smoke --backend torch_musa`；详见 [环境检查](docs/manual/doctor.md)。
 
 ## 常用命令速查
@@ -105,6 +126,8 @@ python -m musaopst run demo-musa/cases.json --device 0 --output runs/demo-musa
 | 正确性测试 | `python -m musaopst run cases.json --output runs/test` |
 | 正确性通过后测性能 | `python -m musaopst run cases.json --benchmark --output runs/perf` |
 | 按名称选择用例 | `python -m musaopst run cases.json --case '*softmax*' --output runs/selected` |
+| 按子串选择用例 | `python -m musaopst run cases.json --case softmax --output runs/selected` |
+| 只列出用例名 | `python -m musaopst run cases.json --list-cases` |
 | 有限重复测试 | `python -m musaopst run cases.json --repeat 20 --output runs/repeat` |
 | 单独生成数据 | `python -m musaopst data cases.json --output runs/data` |
 | 离线重比较 | `python -m musaopst compare runs/test --output runs/recompare` |

@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: MulanPSL-2.0
 """Serial fresh-interpreter supervision, including bounded dynamic groups."""
 import copy
-import fnmatch
 import hashlib
 import importlib.metadata
 import json
@@ -16,7 +15,8 @@ import sys
 import time
 from datetime import datetime, timezone
 from . import __version__
-from .config import load_config, ConfigError
+from .config import load_config, ConfigError, filter_cases, selection_error, unique_names
+from .device import is_invalid_ordinal, ordinal_error_message, DeviceSelectionError
 from .reporting import render_reports, validate_case_result
 from .util import write_json, sha256, entry_module
 from .expectations import apply_expectation
@@ -106,7 +106,7 @@ def reusable_snapshots(old, case_dir):
 
 
 def run_suite(config_path,output_dir,device=0,benchmark=None,repeat=None,duration=None,pattern=None,
-              tags=None,resume=None,rerun_failed=False,profile=None):
+              tags=None,resume=None,rerun_failed=False,profile=None,device_selection=None):
     from .config import revalidate_cases
     configs=[Path(p).resolve() for p in (config_path if isinstance(config_path,(list,tuple)) else [config_path])]
     output_dir=Path(output_dir).resolve()
@@ -120,16 +120,34 @@ def run_suite(config_path,output_dir,device=0,benchmark=None,repeat=None,duratio
             'config_files':list(map(str,configs)),'reproduce':'unknown','run_complete':False}
     try:
         if not configs:raise ConfigError('必须提供配置或已有准备产物')
-        originals=[];cases=[];origins=[]
+        originals=[];cases=[];origins=[];available=[]
         for config_index,path in enumerate(configs):
             originals.append(json.loads(path.read_text()))
             loaded=load_config(path)
             for case in loaded:
                 if len(configs)>1:case['name']=str(config_index)+':'+path.stem+'::'+case['name']
-                if pattern and not fnmatch.fnmatch(case['name'],pattern):continue
-                if tags and not set(tags).issubset(case.get('tags',[])):continue
+                available.append(case['name'])
+                if not filter_cases([case],pattern,tags):continue
                 cases.append(case);origins.append(str(path.parent))
-        if not cases:raise ConfigError('筛选后没有用例')
+        available=unique_names(available)
+        result['selection']={'pattern':pattern,'tags':list(tags or []),'matched':len(cases),
+                             'available_count':len(available)}
+        if not cases:
+            result['usage_error']=True
+            result['selection']['available']=available[:20]
+            raise ConfigError(selection_error(available,pattern,tags))
+        # Resolve `--device` once, in the supervising parent, before any worker
+        # exists. A container-visible ordinal is not a physical GPU number.
+        if device_selection is None and any(c['backend']!='cpu' for c in cases):
+            from .device import resolve_device, announce
+            device_selection=resolve_device(device)
+            announce(device_selection)
+        if device_selection is not None:
+            resolution=(device_selection.as_dict() if hasattr(device_selection,'as_dict')
+                        else dict(device_selection))
+            device=int(resolution.get('ordinal',device))
+            result['environment']['device_selection']=device
+            result['environment']['device_resolution']=resolution
         if len({c['name'] for c in cases})!=len(cases):raise ConfigError('配置展开后名称重复')
         result['original_config']=originals[0] if len(originals)==1 else originals
         result['config_sha256']=[sha256(p) for p in configs] if len(configs)>1 else sha256(configs[0])
@@ -157,6 +175,9 @@ def run_suite(config_path,output_dir,device=0,benchmark=None,repeat=None,duratio
                     raise ConfigError('动态组必须使用相同 backend、entry、attrs')
                 if cases[i]['benchmark'].get('stream')!=first['benchmark'].get('stream'):raise ConfigError('动态组的stream政策必须一致')
                 if cases[i]['skip']:raise ConfigError('动态组不支持跳过其中单例')
+    except DeviceSelectionError:
+        # Usage error: the caller (CLI) reports exit code 2 without a report.
+        raise
     except (ConfigError,ValueError,OSError) as exc:
         result['run_complete']=True
         result['cases'].append({'name':'configuration','backend':'config','required':True,'status':'CONFIG_ERROR','message':str(exc)})
@@ -253,6 +274,14 @@ def run_suite(config_path,output_dir,device=0,benchmark=None,repeat=None,duratio
                         record=json.loads((path/'result.json').read_text());validate_case_result(record)
                         if any(record.get(k)!=base[k] for k in ('name','backend','required','mode')):raise ValueError('worker结果标识不匹配')
                         base.update(record)
+                        if (base['status']=='ENVIRONMENT_ERROR' and not record.get('expectation_evaluated')
+                                and is_invalid_ordinal(f"{record.get('message','')} {record.get('traceback','')}")):
+                            # A bad ordinal is an argument/configuration mistake, not a
+                            # broken machine; keep it out of ENVIRONMENT_ERROR.
+                            requested=(result['environment'].get('device_resolution') or {}).get('requested',device)
+                            base.update(status='CONFIG_ERROR',device_selection_error=True,
+                                        message=ordinal_error_message(record.get('message',''),requested))
+                            base.pop('fatal_device_error',None)
                         if rc!=0 and not group and base['status'] in {'PASS','EXPECTED_FAILURE'}:
                             base.update(status='EXECUTION_FAILED',message=f'worker退出{rc}，结果不能记为通过')
                             if case['backend']!='cpu':base['fatal_device_error']=True

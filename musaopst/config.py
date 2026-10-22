@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import fnmatch
 import itertools
 import json
 import math
@@ -269,6 +270,48 @@ def load_config(path):
     except (OSError, json.JSONDecodeError) as exc:
         raise ConfigError(f"cannot read config {path}: {exc}") from exc
     return expand_config(config)
+
+
+def case_matches(name, pattern):
+    """`--case` accepts a glob or a plain substring; no hidden glob requirement."""
+    return not pattern or fnmatch.fnmatch(name, pattern) or pattern in name
+
+
+def filter_cases(cases, pattern=None, tags=None):
+    selected = []
+    for case in cases:
+        if not case_matches(case['name'], pattern):
+            continue
+        if tags and not set(tags).issubset(case.get('tags', [])):
+            continue
+        selected.append(case)
+    return selected
+
+
+def unique_names(names):
+    return list(dict.fromkeys(names))
+
+
+def selection_error(names, pattern=None, tags=None, limit=15):
+    """Explain a zero-match selection with real names and both accepted forms."""
+    names = unique_names(names)
+    wanted = []
+    if pattern:
+        wanted.append(f'--case={pattern!r}')
+    if tags:
+        wanted.append('--tag=' + ','.join(tags))
+    head = f"没有用例匹配 {' '.join(wanted) or '当前筛选'}（共 {len(names)} 个可用用例）。"
+    if names:
+        head += f"可用用例（前 {min(limit, len(names))} 个）：{'、'.join(names[:limit])}"
+        if len(names) > limit:
+            head += ' …'
+        head += '。'
+    if pattern:
+        tail = (" --case 支持通配符（如 '*softmax*'）或子串（如 'softmax'），"
+                "也可用 --list-cases 查看全部用例。")
+    else:
+        tail = ' 可用 --list-cases 查看全部用例名与标签。'
+    return head + tail
 
 # Version 1 is intentionally left intact above. Version 2 adds explicit tensor
 # trees and richer policies without changing existing configurations' defaults.

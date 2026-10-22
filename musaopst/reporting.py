@@ -122,6 +122,10 @@ def render_reports(result, output_dir):
         raise ValueError('结果中的 cases 必须是列表')
     # Validate before writing so an invalid report cannot overwrite old artifacts.
     summary = summarize(result['cases'])
+    # A selector or usage mistake is not a device verdict: exit 2 keeps CI able
+    # to distinguish "bad argument" from "required case failed".
+    if result.get('usage_error'):
+        summary['exit_code'] = 2
     if 'run_complete' in result and type(result['run_complete']) is not bool:
         raise ValueError('run_complete 必须是布尔值')
     planned = result.get('planned_cases', [])
@@ -140,7 +144,25 @@ def render_reports(result, output_dir):
     write_json(dest / 'results.json', result)
     summary = result['summary']
     lines = ['# musaopst 测试报告', '',
-             f"整体测试期望：**{'满足' if summary['passed'] else '未满足'}**；退出码 `{summary['exit_code']}`。", '',
+             f"整体测试期望：**{'满足' if summary['passed'] else '未满足'}**；退出码 `{summary['exit_code']}`。", '']
+    resolution = (result.get('environment') or {}).get('device_resolution') if isinstance(result.get('environment'), dict) else None
+    if isinstance(resolution, dict):
+        from .device import format_resolution
+        lines += [f"设备：{format_resolution(resolution)}", '']
+        if resolution.get('note'):
+            lines += [f"设备说明：{_escape(resolution['note'])}", '']
+    selection = result.get('selection') if isinstance(result.get('selection'), dict) else None
+    if selection and (selection.get('pattern') or selection.get('tags')):
+        wanted = []
+        if selection.get('pattern'):
+            wanted.append(f"--case={selection['pattern']!r}")
+        if selection.get('tags'):
+            wanted.append('--tag=' + ','.join(selection['tags']))
+        lines += [f"筛选：{' '.join(wanted)}；命中 {selection.get('matched', '?')}/{selection.get('available_count', '?')} 个用例。", '']
+    if selection and selection.get('available'):
+        names = selection['available']
+        lines += [f"可用用例（前 {len(names)} 个）：{'、'.join(names)}。筛选支持 --case 通配符/子串与 --tag；使用 --list-cases 查看全部用例。", '']
+    lines += [
              f"真实 GPU 通过 {summary['gpu_passed']} 项；CPU 平台测试通过 {summary['cpu_platform_passed']} 项。",
              f"必需项未通过 {summary['required_nonpass']} 项；可选项未执行 {summary['optional_unexecuted']} 项；待执行 {summary['pending']} 项。", '',
              f"调度完成：{summary['run_complete']}。未完成的运行不能整体通过。", '',

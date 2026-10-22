@@ -25,11 +25,15 @@ def parser():
     for name in ('run','profile'):
         run=sub.add_parser(name,help='新进程串行执行用例' if name=='run' else '正确性通过后采集独立 GPU trace')
         run.add_argument('config',type=Path,nargs='*');run.add_argument('--prepared',type=Path)
-        run.add_argument('--output',type=Path,required=True);run.add_argument('--device',type=int,default=0)
+        run.add_argument('--output',type=Path)
+        run.add_argument('--device',type=int,default=0,help='可见设备列表内的序号（torch.musa.set_device 语义），不是物理 GPU 编号；默认 0')
         run.add_argument('--benchmark',action='store_true',default=None);run.add_argument('--repeat',type=int)
-        run.add_argument('--duration',type=float);run.add_argument('--case',dest='pattern')
-        run.add_argument('--tag',action='append');run.add_argument('--resume',type=Path)
+        run.add_argument('--duration',type=float)
+        run.add_argument('--case',dest='pattern',help="按用例名筛选：通配符（'*softmax*'）或直接子串（'softmax'）")
+        run.add_argument('--tag',action='append')
+        run.add_argument('--resume',type=Path)
         run.add_argument('--rerun-failed',action='store_true')
+        run.add_argument('--list-cases',action='store_true',help='只列出筛选后的 name/backend/tags，不执行用例')
     report=sub.add_parser('report',help='报告重绘、合并或可比性能基线检查')
     report.add_argument('results',type=Path,nargs='+');report.add_argument('--output',type=Path)
     report.add_argument('--merge',action='store_true');report.add_argument('--baseline',type=Path)
@@ -82,6 +86,45 @@ def _module_context(directory):
         os.environ['PYTHONPATH']=os.pathsep.join([*paths,os.environ.get('PYTHONPATH','')])
 
 
+def _config_backends(configs):
+    from .config import ConfigError, load_config
+    try:
+        return [case['backend'] for path in configs for case in load_config(path)]
+    except ConfigError:
+        # An invalid configuration must still produce its CONFIG_ERROR report.
+        return None
+
+
+def _resolve_device(configs, requested):
+    """Validate --device in the parent, before any worker or output is created."""
+    from .device import resolve_device, announce
+    backends=_config_backends(configs)
+    if backends is None:return None
+    if all(backend=='cpu' for backend in backends):
+        print('device: 仅 CPU 平台用例，跳过 --device 校验',flush=True)
+        return None
+    selection=resolve_device(requested);announce(selection);return selection
+
+
+def _list_cases(configs, pattern, tags):
+    from .config import load_config, filter_cases, selection_error
+    if not configs:raise ValueError('--list-cases 需要至少一个配置路径')
+    entries=[];available=[]
+    for index,path in enumerate(configs):
+        for case in load_config(path):
+            name=(str(index)+':'+path.stem+'::' if len(configs)>1 else '')+case['name']
+            available.append(name)
+            entries.append({'name':name,'backend':case['backend'],'tags':list(case.get('tags') or [])})
+    selected=filter_cases(entries,pattern,tags)
+    if not selected and (pattern or tags):
+        raise ValueError(selection_error(available,pattern,tags))
+    print('# name\tbackend\ttags')
+    for case in selected:
+        print(f"{case['name']}\t{case['backend']}\t{','.join(case['tags']) or '-'}")
+    print(f'# {len(selected)}/{len(entries)} 个用例')
+    return 0
+
+
 def _doctor(args):
     from .runner import terminate_worker
     import math
@@ -96,6 +139,12 @@ def _doctor(args):
                 terminate_worker(proc);write_json(dest/'doctor.json',{'gpu_available':False,'status':'TIMEOUT'});rc=1
         if not (dest/'doctor.json').exists():write_json(dest/'doctor.json',{'gpu_available':False,'status':'ENVIRONMENT_ERROR','message':f'worker exited {rc}'})
         record=json.loads((dest/'doctor.json').read_text())
+        if record.get('device_resolution'):
+            from .device import format_resolution
+            print('device: '+format_resolution(record['device_resolution']),flush=True)
+        if record.get('status')=='DEVICE_SELECTION_ERROR':
+            print(record.get('device_selection_error','--device 越界'),file=sys.stderr)
+            print(json.dumps(record,indent=2,ensure_ascii=False));return 2
         if args.smoke and record.get('gpu_available') and rc==0:
             from .runner import run_suite
             cases=[]
@@ -108,7 +157,9 @@ def _doctor(args):
                               'reference':'musaopst.examples.references:'+('softmax' if soft else 'add'),
                               'attrs':{'dim':-1} if soft else {},'timeout_s':180})
             cfg=dest/'smoke.json';write_json(cfg,{'schema_version':1,'cases':cases})
-            smoke=run_suite(cfg,dest/'smoke',device=args.device);record['smoke_summary']=smoke['summary'];rc=smoke['summary']['exit_code']
+            smoke=run_suite(cfg,dest/'smoke',device=record.get('device_selection',args.device),
+                            device_selection=record.get('device_resolution'))
+            record['smoke_summary']=smoke['summary'];rc=smoke['summary']['exit_code']
             write_json(dest/'doctor.json',record)
         print(json.dumps(record,indent=2,ensure_ascii=False));return 0 if record.get('gpu_available') and rc==0 else 1
 
@@ -122,22 +173,34 @@ def main(argv=None):
         if args.command=='validate':
             from .config import load_config
             cases=load_config(args.config);print(json.dumps({'valid':True,'expanded_count':len(cases),'names':[c['name'] for c in cases]},ensure_ascii=False));return 0
-        if args.command in {'run','profile','replay'}:
+        if args.command in {'run','profile'}:
             from .runner import run_suite
-            if args.command=='replay':
-                from .workflows import replay_config
-                inputs=Path(str(args.output)+'-inputs');cfg=replay_config(args.results,inputs,case_pattern=args.pattern)
-                _module_context(inputs);result=run_suite(cfg,args.output,device=args.device)
-            else:
-                configs=args.config
-                if args.prepared:
-                    if configs:raise ValueError('配置与 --prepared 只能选择其一')
-                    from .workflows import prepared_config
-                    inputs=Path(str(args.output)+'-inputs');configs=[prepared_config(args.prepared,inputs)]
-                    _module_context(inputs)
-                result=run_suite(configs,args.output,device=args.device,benchmark=args.benchmark,repeat=args.repeat,
-                                 duration=args.duration,pattern=args.pattern,tags=args.tag,resume=args.resume,
-                                 rerun_failed=args.rerun_failed,profile=True if args.command=='profile' else None)
+            if args.list_cases and args.prepared:raise ValueError('--list-cases 不能与 --prepared 同时使用')
+            configs=args.config
+            if args.prepared:
+                if configs:raise ValueError('配置与 --prepared 只能选择其一')
+                from .workflows import prepared_config
+                inputs=Path(str(args.output)+'-inputs');configs=[prepared_config(args.prepared,inputs)]
+                _module_context(inputs)
+            if args.list_cases:
+                return _list_cases(configs,args.pattern,args.tag)
+            if not args.output:raise ValueError(f'{args.command} 需要 --output')
+            selection=_resolve_device(configs,args.device)
+            result=run_suite(configs,args.output,device=selection.ordinal if selection else args.device,
+                             device_selection=selection,benchmark=args.benchmark,repeat=args.repeat,
+                             duration=args.duration,pattern=args.pattern,tags=args.tag,resume=args.resume,
+                             rerun_failed=args.rerun_failed,profile=True if args.command=='profile' else None)
+            if result.get('usage_error'):
+                for case in result.get('cases',[]):
+                    if case.get('status')=='CONFIG_ERROR':print('错误：'+case.get('message',''),file=sys.stderr)
+            print(json.dumps(result['summary'],ensure_ascii=False));return result['summary']['exit_code']
+        if args.command=='replay':
+            from .runner import run_suite
+            from .workflows import replay_config
+            inputs=Path(str(args.output)+'-inputs');cfg=replay_config(args.results,inputs,case_pattern=args.pattern)
+            _module_context(inputs);selection=_resolve_device([cfg],args.device)
+            result=run_suite(cfg,args.output,device=selection.ordinal if selection else args.device,
+                             device_selection=selection)
             print(json.dumps(result['summary'],ensure_ascii=False));return result['summary']['exit_code']
         if args.command=='report':
             if args.merge:

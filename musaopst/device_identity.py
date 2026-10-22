@@ -6,6 +6,33 @@ import shutil
 import subprocess
 
 
+VISIBILITY_VARIABLES = ('MTHREADS_VISIBLE_DEVICES', 'MUSA_VISIBLE_DEVICES')
+
+
+def visibility_spec(environ=None):
+    """Single interpretation of container visibility for identity and --device.
+
+    `indices` is a physical-id list only for a pure numeric visibility value;
+    UUID lists stay as raw text because the host-side index is unknown.
+    """
+    env = os.environ if environ is None else environ
+    for name in VISIBILITY_VARIABLES:
+        raw = env.get(name)
+        if raw is None:
+            continue
+        text = str(raw).strip()
+        # Images commonly ship MTHREADS_VISIBLE_DEVICES=all as "no restriction";
+        # it must not shadow an explicit MUSA_VISIBLE_DEVICES value.
+        if not text or text.lower() == 'all':
+            continue
+        parts = [part.strip() for part in text.split(',')]
+        numeric = bool(parts) and all(part.isdigit() for part in parts)
+        return {'variable': name, 'raw': text,
+                'indices': [int(part) for part in parts] if numeric else None,
+                'numeric': numeric}
+    return {'variable': None, 'raw': None, 'indices': None, 'numeric': False}
+
+
 def probe(device=0):
     binary=shutil.which('mthreads-gmi')
     if not binary:return {'verified':False,'reason':'mthreads-gmi unavailable'}
@@ -23,11 +50,11 @@ def probe(device=0):
         selected=None
         if len(records)==1 and device==0:selected=records[0]
         else:
-            visibility=os.environ.get('MTHREADS_VISIBLE_DEVICES') or os.environ.get('MUSA_VISIBLE_DEVICES')
-            if visibility and all(x.isdigit() for x in visibility.split(',')):
-                indices=[int(x) for x in visibility.split(',')]
+            visibility=visibility_spec()
+            if visibility['numeric']:
+                indices=visibility['indices']
                 if device<len(indices):selected=next((r for r in records if r[0]==indices[device]),None)
-            elif not visibility:selected=next((r for r in records if r[0]==device),None)
+            elif not visibility['raw']:selected=next((r for r in records if r[0]==device),None)
         if not selected:return {'verified':False,'reason':'ambiguous device visibility'}
         driver=re.search(r'Driver Version\s*:\s*(\S+)',text)
         return {'verified':True,'uuid':selected[1],'driver':driver[1] if driver else 'unknown',

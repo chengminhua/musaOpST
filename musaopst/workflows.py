@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import copy
 import csv
-import fnmatch
 import inspect
 import json
 import os
@@ -17,7 +16,7 @@ import numpy as np
 
 from .artifacts import case_directory, content_digest, file_manifest, result_path, verify_manifest
 from .compare import compare_outputs
-from .config import load_config
+from .config import load_config, case_matches, selection_error
 from .data import make_inputs, tensor_metadata
 from .util import load_entry, sha256, write_json
 
@@ -280,7 +279,7 @@ def replay_config(results_path, output_dir, *, case_pattern=None):
     selected = []
     provenance = []
     for i, record in enumerate(prior.get("cases", [])):
-        if case_pattern and not fnmatch.fnmatch(record["name"], case_pattern):
+        if case_pattern and not case_matches(record["name"], case_pattern):
             continue
         if "config" not in record:
             raise ValueError(f"case has no resolved configuration: {record['name']}")
@@ -322,7 +321,8 @@ def replay_config(results_path, output_dir, *, case_pattern=None):
         selected.append(case)
         provenance.append({"case": case["name"], "snapshot_sha256": sha256(original)})
     if not selected:
-        raise ValueError("no cases selected for replay")
+        names = [record.get("name", "") for record in prior.get("cases", [])]
+        raise ValueError(selection_error(names, case_pattern) if case_pattern else "no cases selected for replay")
     config = {"schema_version": 2, "cases": selected}
     path = output / "replay.json"
     write_json(path, config)

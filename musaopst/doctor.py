@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import sys
 from .util import write_json
+from .device import resolve_device, DeviceSelectionError
 
 
 def probe(device=0):
@@ -35,10 +36,13 @@ def probe(device=0):
         import torch_musa
         data['gpu_available'] = bool(torch.musa.is_available())
         data['device_count'] = torch.musa.device_count()
-        if not data['gpu_available'] or device >= data['device_count']:
+        if not data['gpu_available'] or not data['device_count']:
             raise RuntimeError('请求的 MUSA 设备不可用；不回退 CPU')
-        torch.musa.set_device(device)
-        prop = torch.musa.get_device_properties(device)
+        selection = resolve_device(device, device_count=data['device_count'])
+        data['device_selection'] = selection.ordinal
+        data['device_resolution'] = selection.as_dict()
+        torch.musa.set_device(selection.ordinal)
+        prop = torch.musa.get_device_properties(selection.ordinal)
         data['device'] = {k:getattr(prop,k,'unknown') for k in ['name','major','minor','total_memory','multi_processor_count','warp_size']}
         data['capabilities']['torch_musa'] = True
         data['capabilities']['event_api'] = hasattr(torch.musa,'Event')
@@ -57,6 +61,10 @@ def probe(device=0):
             except Exception as exc:
                 data['capabilities'][name+'_import'] = False
                 data['errors'].append(f'{name}: {exc!r}')
+    except DeviceSelectionError as exc:
+        data['status'] = 'DEVICE_SELECTION_ERROR'
+        data['device_selection_error'] = str(exc)
+        data['errors'].append(str(exc))
     except Exception as exc:
         data['errors'].append(repr(exc))
     data['visibility'] = {k:os.environ.get(k,'unknown') for k in ['MUSA_VISIBLE_DEVICES','MTHREADS_VISIBLE_DEVICES']}
@@ -64,4 +72,5 @@ def probe(device=0):
 
 
 if __name__=='__main__':
-    write_json(sys.argv[1],probe(int(sys.argv[2])))
+    result=probe(int(sys.argv[2]));write_json(sys.argv[1],result)
+    raise SystemExit(2 if result.get('status')=='DEVICE_SELECTION_ERROR' else 0)
